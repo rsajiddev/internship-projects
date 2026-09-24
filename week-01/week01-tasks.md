@@ -104,3 +104,11 @@
 **Short version:** Week 1 ka actual deliverable ek **responsive static portfolio website using HTML + CSS, without JavaScript** hai.
 
 ### DEADLINE: SUNDAY 9:00AM
+------
+Resources:
+Google fonts links:
+  https://fonts.googleapis.com
+  https://fonts.gstatic.com
+  https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
+
+Image link: https://www.vecteezy.com/vector-art/15435210-web-development-programmer-engineering-website
