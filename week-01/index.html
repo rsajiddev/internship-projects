@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Raza (CodaZ) - iOS and Web Developer building real-world mobile apps and websites with Swift, SwiftUI, React.js and Next.js.">
 
-    <title>Tech SG Studio - Internship</title>
+    <title>Raza | CodaZ - iOS &amp; Web Developer</title>
 
     <!-- Google Font: Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- HEADER -->
     <header>
-        <!-- NAVBAR -->
-        <nav class="nav">
-            <!-- Logo / Brand -->
+        <nav class="nav" aria-label="Main navigation">
             <div class="nav-brand">
-                <h4>CodaZ</h4>
+                <a href="#hero" class="nav-logo">CodaZ</a>
             </div>
 
-            <!-- Hamburger Button -->
-            <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="navLinks">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- Navigation Links -->
             <div class="nav-links" id="navLinks">
-                <a href="#">Services</a>
-                <a href="#">Projects</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </div>
         </nav>
     </header>
@@ -49,24 +49,73 @@
     <main>
 
         <!-- HERO SECTION -->
-        <section class="heroCard">
-            <!-- Hero Text -->
-            <div class="heroCardText">
-                <h1>
-                    Learn the coolest web
-                    <span>development</span>
-                    skills with me!
-                </h1>
+        <section class="hero" id="hero">
+            <div class="hero-text">
+                <h1>iOS &amp; Web Developer Building Real-World Digital Products</h1>
 
-                <p>
-                    I'm Raza and this is my task at Tech SG Studio as a intern.
+                <p class="hero-lead">
+                    I'm Raza Ullah Sajid, an iOS and Web Developer with 1.5+ years of experience building
+                    real-time mobile applications and 2+ years of experience developing websites
+                    and web applications using HTML, CSS, JavaScript, React.js and Next.js.
                 </p>
+
+                <p class="hero-sub">
+                    I've delivered client projects across mobile apps, web applications and
+                    modern UI development, including SEO-focused websites that reached
+                    first-page rankings within short optimisation periods where applicable.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                </div>
+
+                <ul class="hero-stats">
+                    <li class="stat-card">
+                        <strong>1.5+ years</strong>
+                        <span>iOS development</span>
+                    </li>
+                    <li class="stat-card">
+                        <strong>2+ years</strong>
+                        <span>Web development</span>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Hero Image -->
-            <div class="heroImage">
-                <img src="dev-portfolio.jpg" alt="Web developer portfolio illustration">
+            <div class="hero-visual">
+                <figure class="hero-image-card">
+                    <img src="images/portfolio-img1.jpg" alt="Portrait of Raza, iOS and Web Developer" width="600"
+                        height="750">
+                    <figcaption class="glass-card">
+                        <h2>Raza</h2>
+                        <p>Swift, SwiftUI, React.js and Next.js. Turning client requirements into working products.</p>
+                    </figcaption>
+                </figure>
             </div>
+
+            <a href="#services" class="scroll-hint" aria-label="Scroll to services">&darr; Scroll</a>
+        </section>
+
+
+        <!-- SECTION STUBS (built in the next steps) -->
+        <section id="services" class="section">
+            <h2>Services</h2>
+        </section>
+
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About</h2>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+        </section>
+
+        <section id="contact" class="section">
+            <h2>Contact</h2>
         </section>
 
     </main>
@@ -74,9 +123,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="copyrightText">
-            <p>
-                Copyright &copy; 2024 Tech SG Studio. All rights reserved.
-            </p>
+            <p>&copy; 2026 Raza. All rights reserved.</p>
         </div>
     </footer>
 
@@ -85,11 +132,23 @@
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
 
+        function setMenu(open) {
+            navLinks.classList.toggle("active", open);
+            hamburger.classList.toggle("active", open);
+            hamburger.setAttribute("aria-expanded", open);
+            hamburger.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        }
+
         hamburger.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            hamburger.classList.toggle("active");
+            setMenu(!navLinks.classList.contains("active"));
+        });
+
+        // Close the mobile menu after choosing a link
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => setMenu(false));
         });
     </script>
 
 </body>
+
 </html>

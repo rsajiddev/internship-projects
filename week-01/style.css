@@ -1,4 +1,24 @@
 /* ========================================
+   THEME (Kozowood palette)
+======================================== */
+
+:root {
+    --bg: #2b251f;          /* page background (deep shade of 3E362E) */
+    --surface: #3e362e;     /* cards, navbar */
+    --border: rgba(172, 137, 104, 0.28);
+    --accent: #ac8968;      /* main accent */
+    --accent-strong: #865d36;
+    --muted: #a69080;       /* secondary text */
+    --text: #f4ece3;
+
+    --radius-lg: 1.5rem;
+    --radius-md: 1rem;
+    --radius-sm: 0.5rem;
+    --nav-height: 72px;
+}
+
+
+/* ========================================
    GLOBAL RESET
 ======================================== */
 
@@ -9,8 +29,25 @@
     font-family: "Space Mono", monospace;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+section[id] {
+    scroll-margin-top: var(--nav-height);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
 }
 
 
@@ -23,29 +60,23 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: #080000;
+    min-height: var(--nav-height);
+    background-color: rgba(43, 37, 31, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
     padding: 1rem 4rem;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-
-/* ========================================
-   NAVBAR BRAND
-======================================== */
-
-.nav-brand h4 {
-    color: #fff;
-    font-family: "Space Mono", monospace;
+.nav-logo {
+    color: var(--text);
+    text-decoration: none;
     font-size: 1.5rem;
     font-weight: 700;
+    letter-spacing: 0.02em;
 }
-
-
-/* ========================================
-   NAVIGATION LINKS
-======================================== */
 
 .nav-links {
     display: flex;
@@ -55,24 +86,16 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.95rem;
     padding: 0.6rem 1rem;
-    border-radius: 0.5rem;
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
-/* ========================================
-   NAVIGATION HOVER
-======================================== */
-
 .nav-links a:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--accent);
+    color: var(--bg);
 }
 
 
@@ -92,11 +115,70 @@ body {
     display: block;
     width: 25px;
     height: 2px;
-    background-color: #fff;
+    background-color: var(--text);
     margin: 5px 0;
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--bg);
+}
+
+.btn-primary:hover {
+    background-color: var(--text);
+    border-color: var(--text);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background-color: var(--surface);
+}
+
+
+/* ========================================
+   CARD SYSTEM (shared by all sections)
+======================================== */
+
+.stat-card,
+.glass-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+}
+
+.stat-card {
+    background-color: var(--surface);
+}
+
+.glass-card {
+    background-color: rgba(62, 54, 46, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 
@@ -104,42 +186,67 @@ body {
    HERO SECTION
 ======================================== */
 
-.heroCard {
+.hero {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 4rem;
-    min-height: calc(100vh - 75px);
-    padding: 4rem;
+    min-height: calc(100vh - var(--nav-height));
+    padding: 4rem 4rem 5rem;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-
-/* ========================================
-   HERO TEXT
-======================================== */
-
-.heroCardText {
-    flex: 1;
-    max-width: 600px;
-    padding: 2rem 0;
+.hero-text {
+    flex: 1.1;
+    max-width: 640px;
 }
 
-.heroCardText h1 {
-    font-size: clamp(2.2rem, 5vw, 4.5rem);
+.hero-text h1 {
+    font-size: clamp(2rem, 4.2vw, 3.6rem);
     line-height: 1.15;
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
-.heroCardText h1 span {
-    color: #bb0000;
-}
-
-.heroCardText p {
-    max-width: 500px;
+.hero-lead {
     font-size: 1rem;
     line-height: 1.8;
-    color: #444;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.hero-sub {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+.stat-card strong {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.stat-card span {
+    font-size: 0.8rem;
+    color: var(--muted);
 }
 
 
@@ -147,21 +254,78 @@ body {
    HERO IMAGE
 ======================================== */
 
-.heroImage {
-    flex: 1;
+.hero-visual {
+    flex: 0.9;
     display: flex;
     justify-content: center;
-    align-items: center;
-    max-width: 600px;
 }
 
-.heroImage img {
+.hero-image-card {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background-color: var(--accent-strong);
+    box-shadow: 0 0 60px rgba(134, 93, 54, 0.25);
+}
+
+.hero-image-card img {
     display: block;
     width: 100%;
-    max-width: 550px;
-    height: auto;
+    height: 100%;
     object-fit: cover;
-    border-radius: 1rem;
+}
+
+.hero-image-card .glass-card {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.glass-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.glass-card p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.scroll-hint {
+    position: absolute;
+    left: 4rem;
+    bottom: 1.5rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+}
+
+.scroll-hint:hover {
+    color: var(--accent);
+}
+
+
+/* ========================================
+   SECTION STUBS
+======================================== */
+
+.section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem;
+    border-top: 1px solid var(--border);
+}
+
+.section h2 {
+    font-size: 1.8rem;
 }
 
 
@@ -171,30 +335,51 @@ body {
 
 .copyrightText {
     text-align: center;
-    margin-top: 2rem;
-    padding: 1rem;
+    padding: 2rem 1rem;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
 }
 
 
 /* ========================================
-   MOBILE NAVBAR
+   RESPONSIVE - TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+    .nav {
+        padding: 1rem 2rem;
+    }
+
+    .hero {
+        gap: 2rem;
+        padding: 3rem 2rem 4rem;
+    }
+
+    .scroll-hint {
+        left: 2rem;
+    }
+
+    .section {
+        padding: 3rem 2rem;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE - MOBILE
 ======================================== */
 
 @media (max-width: 768px) {
 
     .nav {
-        padding: 1rem;
+        padding: 1rem 1.25rem;
     }
-
-    /* Show hamburger */
 
     .hamburger {
         display: block;
     }
-
-    /* Mobile navigation menu */
 
     .nav-links {
         display: none;
@@ -205,25 +390,19 @@ body {
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        background-color: #080000;
+        background-color: var(--bg);
+        border-bottom: 1px solid var(--border);
         padding: 0.75rem 1rem;
     }
-
-    /* Show menu */
 
     .nav-links.active {
         display: flex;
     }
 
-    /* Mobile links */
-
     .nav-links a {
-        width: 100%;
         text-align: center;
-        padding: 0.8rem 1rem;
+        padding: 0.9rem 1rem;
     }
-
-    /* Hamburger animation */
 
     .hamburger.active span:nth-child(1) {
         transform: translateY(7px) rotate(45deg);
@@ -237,51 +416,60 @@ body {
         transform: translateY(-7px) rotate(-45deg);
     }
 
+    /* Hero */
 
-    /* ========================================
-       MOBILE HERO
-    ======================================== */
-
-    .heroCard {
+    .hero {
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.5rem;
         min-height: auto;
-        padding: 3rem 1.25rem;
+        padding: 2.5rem 1.25rem 4rem;
     }
 
-
-    .heroCardText {
-        width: 100%;
+    .hero-text {
         max-width: 100%;
-        padding: 1rem 0;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .hero-cta .btn {
+        flex: 1 1 100%;
         text-align: center;
     }
 
-
-    .heroCardText h1 {
-        font-size: clamp(2rem, 9vw, 3rem);
-        line-height: 1.2;
-        margin-bottom: 1.25rem;
+    .hero-stats .stat-card {
+        flex: 1 1 140px;
     }
 
-
-    .heroCardText p {
-        max-width: 100%;
-        font-size: 0.95rem;
-        line-height: 1.7;
+    .hero-image-card {
+        max-width: 420px;
     }
 
-
-    .heroImage {
-        width: 100%;
-        max-width: 100%;
+    .scroll-hint {
+        display: none;
     }
 
-
-    .heroImage img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 0.75rem;
+    .section {
+        padding: 3rem 1.25rem;
     }
 
+    .copyrightText {
+        font-size: 0.75rem;
+    }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
 }
