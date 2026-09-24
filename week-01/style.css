@@ -17,17 +17,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 100%;
-
     background-color: #080000;
-
     padding: 1rem 2rem;
-
     /* Keep navbar visible while scrolling */
     position: sticky;
     top: 0;
-
     /* Keep navbar above other content */
     z-index: 1000;
 }
@@ -39,11 +34,8 @@
 
 .nav-brand h4 {
     color: #fff;
-
     margin: 0;
-
     font-family: "Playfair Display", serif;
-
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -56,24 +48,18 @@
 .nav-links {
     display: flex;
     align-items: center;
-
     gap: 0.5rem;
 }
 
 
 .nav-links a {
     text-decoration: none;
-
     color: #fff;
-
     font-family: "Playfair Display", serif;
     font-size: 1rem;
     font-weight: 500;
-
     padding: 0.6rem 1rem;
-
     border-radius: 0.5rem;
-
     /* Smooth hover transition */
     transition:
         background-color 0.3s ease,
@@ -87,7 +73,6 @@
 
 .nav-links a:hover {
     background-color: #fff;
-
     color: #000;
 }
 
@@ -98,7 +83,6 @@
 
 .heroCardText {
     text-align: center;
-
     padding: 5rem 1.5rem;
 }
 
@@ -119,13 +103,9 @@
 
 .copyrightText {
     text-align: center;
-
     margin-top: 2rem;
-
     padding: 1rem;
-
     font-size: 0.9rem;
-
     color: #555;
 }
 
@@ -138,34 +118,25 @@
 
     .nav {
         flex-direction: column;
-
         justify-content: center;
-
         gap: 1rem;
-
         padding: 1rem;
     }
-
 
     .nav-brand h4 {
         font-size: 1.4rem;
     }
 
-
     .nav-links {
         width: 100%;
-
         justify-content: center;
-
         flex-wrap: wrap;
-
         gap: 0.25rem;
     }
 
 
     .nav-links a {
         font-size: 0.9rem;
-
         padding: 0.5rem 0.75rem;
     }
 
