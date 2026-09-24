@@ -1,56 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Tech SG Studio - Internship</title>
 
-    <!-- Google Font: Playfair Display -->
+    <!-- Google Font: Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
 
-    <!-- Main CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
-
         <!-- NAVBAR -->
         <nav class="nav">
-            <!-- Logo / Brand Name -->
+            <!-- Logo / Brand -->
             <div class="nav-brand">
                 <h4>CodaZ</h4>
             </div>
 
+            <!-- Hamburger Button -->
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <!-- Navigation Links -->
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="#">Services</a>
                 <a href="#">Projects</a>
                 <a href="#">About</a>
                 <a href="#">Contact</a>
             </div>
         </nav>
-
     </header>
 
 
     <!-- MAIN -->
     <main>
-        <div class="heroCardText">
-            <h1>This is the worksheet for week 01 task</h1>
-            <p>
-                I'm Raza and this is my task at Tech SG Studio as a intern.
-            </p>
-        </div>
-    </main>
 
+        <!-- HERO SECTION -->
+        <section class="heroCard">
+            <!-- Hero Text -->
+            <div class="heroCardText">
+                <h1>
+                    Learn the coolest web
+                    <span>development</span>
+                    skills with me!
+                </h1>
+
+                <p>
+                    I'm Raza and this is my task at Tech SG Studio as a intern.
+                </p>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="heroImage">
+                <img src="dev-portfolio.jpg" alt="Web developer portfolio illustration">
+            </div>
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
     <footer>
@@ -60,6 +79,17 @@
             </p>
         </div>
     </footer>
+
+    <!-- NAVBAR JAVASCRIPT -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+    </script>
 
 </body>
 </html>

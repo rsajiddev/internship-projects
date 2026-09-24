@@ -6,6 +6,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: "Space Mono", monospace;
+}
+
+body {
+    min-height: 100vh;
 }
 
 
@@ -17,27 +22,31 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     width: 100%;
+
     background-color: #080000;
-    padding: 1rem 2rem;
-    /* Keep navbar visible while scrolling */
+
+    padding: 1rem 4rem;
+
     position: sticky;
     top: 0;
-    /* Keep navbar above other content */
+
     z-index: 1000;
 }
 
 
 /* ========================================
-   NAVBAR BRAND / LOGO
+   NAVBAR BRAND
 ======================================== */
 
 .nav-brand h4 {
     color: #fff;
-    margin: 0;
-    font-family: "Playfair Display", serif;
+
+    font-family: "Space Mono", monospace;
+
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 
@@ -48,19 +57,22 @@
 .nav-links {
     display: flex;
     align-items: center;
+
     gap: 0.5rem;
 }
 
-
 .nav-links a {
     text-decoration: none;
+
     color: #fff;
-    font-family: "Playfair Display", serif;
+
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
+
     padding: 0.6rem 1rem;
+
     border-radius: 0.5rem;
-    /* Smooth hover transition */
+
     transition:
         background-color 0.3s ease,
         color 0.3s ease;
@@ -68,7 +80,7 @@
 
 
 /* ========================================
-   NAVIGATION LINK HOVER
+   NAVIGATION HOVER
 ======================================== */
 
 .nav-links a:hover {
@@ -78,22 +90,117 @@
 
 
 /* ========================================
-   HERO
+   HAMBURGER BUTTON
+======================================== */
+
+.hamburger {
+    display: none;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    padding: 0.5rem;
+}
+
+.hamburger span {
+    display: block;
+
+    width: 25px;
+    height: 2px;
+
+    background-color: #fff;
+
+    margin: 5px 0;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+.heroCard {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 4rem;
+
+    min-height: calc(100vh - 75px);
+
+    padding: 4rem;
+}
+
+
+/* ========================================
+   HERO TEXT
 ======================================== */
 
 .heroCardText {
-    text-align: center;
-    padding: 5rem 1.5rem;
-}
+    flex: 1;
 
+    max-width: 600px;
+
+    padding: 2rem 0;
+}
 
 .heroCardText h1 {
-    margin-bottom: 1rem;
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    margin-bottom: 1.5rem;
+}
+
+.heroCardText h1 span {
+    color: #bb0000;
+}
+
+.heroCardText p {
+    max-width: 500px;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+    color: #444;
 }
 
 
-.heroCardText p {
-    line-height: 1.6;
+/* ========================================
+   HERO IMAGE
+======================================== */
+
+.heroImage {
+    flex: 1;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    max-width: 600px;
+}
+
+.heroImage img {
+    display: block;
+
+    width: 100%;
+    max-width: 550px;
+
+    height: auto;
+
+    object-fit: cover;
+
+    border-radius: 1rem;
 }
 
 
@@ -103,41 +210,144 @@
 
 .copyrightText {
     text-align: center;
+
     margin-top: 2rem;
+
     padding: 1rem;
+
     font-size: 0.9rem;
+
     color: #555;
 }
 
 
 /* ========================================
-   MOBILE RESPONSIVE NAVBAR
+   MOBILE NAVBAR
 ======================================== */
 
 @media (max-width: 768px) {
 
     .nav {
-        flex-direction: column;
-        justify-content: center;
-        gap: 1rem;
         padding: 1rem;
     }
 
-    .nav-brand h4 {
-        font-size: 1.4rem;
+    /* Show hamburger */
+
+    .hamburger {
+        display: block;
     }
+
+    /* Mobile navigation menu */
 
     .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0.25rem;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background-color: #080000;
+
+        padding: 0.75rem 1rem;
+    }
+
+    /* Show menu */
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Mobile links */
+
+    .nav-links a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: 0.8rem 1rem;
+    }
+
+    /* Hamburger animation */
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
 
 
-    .nav-links a {
-        font-size: 0.9rem;
-        padding: 0.5rem 0.75rem;
+    /* ========================================
+       MOBILE HERO
+    ======================================== */
+
+    .heroCard {
+        flex-direction: column;
+
+        gap: 2rem;
+
+        min-height: auto;
+
+        padding: 3rem 1.25rem;
+    }
+
+
+    .heroCardText {
+        width: 100%;
+
+        max-width: 100%;
+
+        padding: 1rem 0;
+
+        text-align: center;
+    }
+
+
+    .heroCardText h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+
+        line-height: 1.2;
+
+        margin-bottom: 1.25rem;
+    }
+
+
+    .heroCardText p {
+        max-width: 100%;
+
+        font-size: 0.95rem;
+
+        line-height: 1.7;
+    }
+
+
+    .heroImage {
+        width: 100%;
+
+        max-width: 100%;
+    }
+
+
+    .heroImage img {
+        width: 100%;
+
+        max-width: 500px;
+
+        border-radius: 0.75rem;
     }
 
 }
