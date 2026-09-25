@@ -117,11 +117,6 @@ Image link: https://www.vecteezy.com/vector-art/15435210-web-development-program
 
 ### Portfolio mein ab tak jo implement ho chuka hai (progress summary)
 
-* **Theme & Colours**
-
-  * Kozowood reference image se 5-colour palette liya (`3E362E`, `865D36`, `93785B`, `AC8968`, `A69080`).
-  * CSS custom properties (`:root` variables) mein define kiya, taake pura theme ek jagah se manage ho.
-
 * **Global setup**
 
   * `Space Mono` Google Font connect kiya.
@@ -197,15 +192,15 @@ Image link: https://www.vecteezy.com/vector-art/15435210-web-development-program
   * CSS logically organised hai: Theme -> Global -> Navbar -> Buttons -> Cards -> Hero -> Services/Skills -> About -> Projects -> Contact/Social -> Footer -> Animations -> Responsive.
   * HTML mein bhi comments se sections clearly separate hain.
 
-**Note:** Yeh abhi internship ka **multi-page/advance version** hai (JS ke saath, scroll animation, sticky navbar etc), jabke Week 1 ka official deliverable **HTML + CSS only, static, no JavaScript** portfolio hai. Submission ke waqt is baat ka khayal rakhna hoga ke Week 1 ki requirement alag hai aur ye portfolio uske aagay ka kaam hai.
+* **Theme evolution (Kozowood → light/dark mix → final Black & White)**
 
-* **Theme update (light + dark mix)**
+  * Shuru mein Kozowood reference image se 5-colour warm palette liya gaya tha (`3E362E`, `865D36`, `93785B`, `AC8968`, `A69080`), sab kuch ek hi dark tone mein tha.
+  * Phir poori site ek hi dark tone mein flat lag rahi thi, isliye **Hero aur Footer** ko dark aur **Services/Skills/About/Projects/Contact** ko warm cream (light) background diya gaya — dark/light mix theme.
+  * Feedback ke baad final decision: poori site ko **complete Black & White (monochrome) theme** mein convert kar diya gaya.
 
-  * Poori site ek hi dark tone mein flat lag rahi thi, isliye theme ko revise kiya gaya.
-  * **Hero aur Footer** dark theme par rakhe gaye (brand ka dark bookend, jaisa reference image mein bhi dark strip tha).
-  * **Services, Skills, About, Projects, Contact** sections ka background warm cream (`--bg-light`) kar diya.
-  * In sections ke andar sab cards (`.card`, `.stat-card`) **white background** ke sath dark text (`--text-dark`, `--muted-dark`) mein convert kiye, border ki jagah soft shadow se depth di gayi.
-  * Accent colour (`#ac8968`) sab jagah same rakha, taake buttons/hover/icons consistent rahein.
+    * Hero, Navbar, Footer -> pure black background (`#0d0d0d`), white text/accent.
+    * Services, Skills, About, Projects, Contact -> light grey background (`#efefef`), white cards, black text.
+    * Do separate accent variables banaye: `--accent` (white, dark backgrounds ke liye) aur `--accent-strong` (black, light backgrounds ke liye), taake har element apne background ke hisaab se sahi contrast le.
+    * Isi pass mein kuch chhupe contrast bugs bhi fix kiye (About stats, social icons, hover states) jo warna white-on-white ho kar invisible ho jate.
 
-
-**Note:** Yeh abhi internship ka **multi-page/advance version** hai (JS ke saath, scroll animation, sticky navbar etc), jabke Week 1 ka official deliverable **HTML + CSS only, static, no JavaScript** portfolio hai. Submission ke waqt is baat ka khayal rakhna hoga ke Week 1 ki requirement alag hai aur ye portfolio uske aagay ka kaam hai. main ne requirement ko zehen me rakhty hoy yeh built kia hai main jitni JS required hai utni use ki hai.
+**Note (JavaScript usage):** Portfolio ka final/advance version internship requirement se aagay jata hai — isme JavaScript use hui hai (hamburger menu toggle, broken image handling, scroll-reveal animation). Ye JS sirf utni hi rakhi gayi hai jitni genuinely required thi (jaisa requirement mein bhi likha tha: "jahan interaction genuinely required ho wahan minimal JavaScript use hoga") — koi extra/unnecessary JS add nahi ki gayi. Week 1 ka official deliverable phir bhi **HTML + CSS only, static, no JavaScript** portfolio hai, isliye submission ke waqt is farq ka khayal rakhna hoga: ye portfolio Week 1 ke aagay ka, advance kaam hai.
