@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Raza (CodaZ) - iOS and Web Developer building real-world mobile apps and websites with Swift, SwiftUI, React.js and Next.js.">
+    <meta name="description" content="Razaullah Sajid (CodaZ) - Web and iOS Developer. Next.js, React, Tailwind CSS and Swift. Based in Sadiqabad, Pakistan.">
+    <title>Raza - Ullah Sajid | CodaZ - Web &amp; iOS Developer</title>
 
-    <title>Raza | CodaZ - iOS &amp; Web Developer</title>
-
-    <!-- Google Font: Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add("js");</script>
 </head>
-
 <body>
+
+    <!-- ICON SPRITE (inline SVG, no external library) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-mobile" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+        <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></symbol>
+        <symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+    </svg>
 
     <!-- HEADER -->
     <header>
         <nav class="nav" aria-label="Main navigation">
-            <div class="nav-brand">
-                <a href="#hero" class="nav-logo">CodaZ</a>
-            </div>
-
-            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"
-                aria-controls="navLinks">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-brand"><a href="#hero" class="nav-logo">CodaZ</a></div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
             </button>
-
             <div class="nav-links" id="navLinks">
                 <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
@@ -44,91 +47,218 @@
         </nav>
     </header>
 
-
-    <!-- MAIN -->
     <main>
 
-        <!-- HERO SECTION -->
+        <!-- HERO -->
         <section class="hero" id="hero">
             <div class="hero-text">
-                <h1>iOS &amp; Web Developer Building Real-World Digital Products</h1>
-
+                <h1>Web &amp; iOS Developer Building Real-World Digital Products</h1>
                 <p class="hero-lead">
-                    I'm Raza Ullah Sajid, an iOS and Web Developer with 1.5+ years of experience building
-                    real-time mobile applications and 2+ years of experience developing websites
-                    and web applications using HTML, CSS, JavaScript, React.js and Next.js.
+                    I'm Raza - Ullah Sajid, a Web Developer with 3 years of hands-on experience building websites
+                    and web applications using HTML, CSS, JavaScript, Node.js and Next.js. I'm now expanding
+                    into iOS development, with one app already live on the App Store.
                 </p>
-
                 <p class="hero-sub">
-                    I've delivered client projects across mobile apps, web applications and
-                    modern UI development, including SEO-focused websites that reached
-                    first-page rankings within short optimisation periods where applicable.
+                    I take projects end-to-end, from component architecture and responsive UI to deployment and SEO.
+                    My travel agency website reached the #1 Google ranking for its primary search terms shortly after launch.
                 </p>
-
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Let's Connect</a>
                 </div>
-
                 <ul class="hero-stats">
-                    <li class="stat-card">
-                        <strong>1.5+ years</strong>
-                        <span>iOS development</span>
-                    </li>
-                    <li class="stat-card">
-                        <strong>2+ years</strong>
-                        <span>Web development</span>
-                    </li>
+                    <li class="stat-card"><strong>3 years</strong><span>Web development</span></li>
+                    <li class="stat-card"><strong>1 app live</strong><span>on the App Store</span></li>
                 </ul>
             </div>
-
             <div class="hero-visual">
                 <figure class="hero-image-card">
-                    <img src="images/portfolio-img1.jpg" alt="Portrait of Raza, iOS and Web Developer" width="600"
-                        height="750">
+                    <img src="images/portfolio-img1.jpg" alt="Portrait of Raza - Ullah Sajid, Web and iOS Developer" width="600" height="750">
                     <figcaption class="glass-card">
-                        <h2>Raza</h2>
-                        <p>Swift, SwiftUI, React.js and Next.js. Turning client requirements into working products.</p>
+                        <h2>Raza - Ullah Sajid</h2>
+                        <p>Next.js, React, Tailwind CSS and Swift. Turning client requirements into working products.</p>
                     </figcaption>
                 </figure>
             </div>
-
             <a href="#services" class="scroll-hint" aria-label="Scroll to services">&darr; Scroll</a>
         </section>
 
-
-        <!-- SECTION STUBS (built in the next steps) -->
+        <!-- SERVICES -->
         <section id="services" class="section">
-            <h2>Services</h2>
+            <div class="section-head reveal">
+                <h2>Services</h2>
+                <p>What I can build for you, from first design to live deployment.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card reveal">
+                    <svg class="icon"><use href="#i-globe"/></svg>
+                    <h3>Web Development</h3>
+                    <p>Fast, responsive websites and web applications built with Next.js, React and Node.js.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon"><use href="#i-code"/></svg>
+                    <h3>Front-End Development</h3>
+                    <p>Interactive interfaces with reusable components, animation and clean, maintainable code.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon"><use href="#i-layout"/></svg>
+                    <h3>UI Implementation</h3>
+                    <p>Designs turned into careful, mobile-first layouts using Tailwind CSS and CSS variables.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon"><use href="#i-mobile"/></svg>
+                    <h3>iOS Development</h3>
+                    <p>Native iOS apps in Swift, published to the App Store.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon"><use href="#i-brief"/></svg>
+                    <h3>Client Product Development</h3>
+                    <p>Real client requirements delivered as complete products, including on-page SEO fundamentals.</p>
+                </article>
+            </div>
         </section>
 
+        <!-- SKILLS -->
         <section id="skills" class="section">
-            <h2>Skills</h2>
+            <div class="section-head reveal">
+                <h2>Skills</h2>
+                <p>The technologies I use day to day.</p>
+            </div>
+            <div class="card-grid skills-grid">
+                <article class="card reveal">
+                    <h3>Languages &amp; Core</h3>
+                    <ul class="badges"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>Node.js</li></ul>
+                </article>
+                <article class="card reveal">
+                    <h3>Frameworks &amp; Libraries</h3>
+                    <ul class="badges"><li>Next.js</li><li>React</li><li>Tailwind CSS</li><li>Prisma</li></ul>
+                </article>
+                <article class="card reveal">
+                    <h3>Mobile</h3>
+                    <ul class="badges"><li>Swift</li><li>iOS development</li></ul>
+                    <p class="card-note">Currently learning under a senior iOS developer. 1 app live on the App Store.</p>
+                </article>
+                <article class="card reveal">
+                    <h3>Tools &amp; Platforms</h3>
+                    <ul class="badges"><li>Git</li><li>MySQL</li><li>Cloudinary</li><li>Gemini API</li><li>SEO basics</li></ul>
+                </article>
+            </div>
         </section>
 
+        <!-- ABOUT -->
         <section id="about" class="section">
-            <h2>About</h2>
+            <div class="about reveal">
+                <figure class="about-image">
+                    <img src="images/portfolio-img2.jpg" alt="Raza - Ullah Sajid working as a developer" width="600" height="750" loading="lazy">
+                </figure>
+                <div class="about-body">
+                    <h2>About Me</h2>
+                    <p>
+                        I'm a Web Developer from Kot Sabzal, Pakistan, comfortable owning a project end-to-end,
+                        from component architecture and responsive UI to deployment and SEO. I'm also growing
+                        as an iOS developer, with one app live on the App Store and a second in progress.
+                    </p>
+                    <div class="about-cards">
+                        <div class="stat-card"><strong>3 years</strong><span>Websites and web apps</span></div>
+                        <div class="stat-card"><strong>#1 ranking</strong><span>Google, for a client's primary search terms</span></div>
+                        <div class="stat-card"><strong>BSCS, 7th sem</strong><span>College Sadiqabad, Islamia University of Bahawalpur</span></div>
+                        <div class="stat-card"><strong>ADP-CS, GPA 3.58</strong><span>Associate Degree in Computer Science</span></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
+        <!-- PROJECTS -->
         <section id="projects" class="section">
-            <h2>Projects</h2>
+            <div class="section-head reveal">
+                <h2>Projects</h2>
+                <p>Selected work, from a live client site to a full-stack AI app.</p>
+            </div>
+            <div class="card-grid projects-grid">
+                <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/dostUmrah.jpg" alt="Dost Umrah Service travel agency website" loading="lazy"></div>
+                    <h3>Dost Umrah Service</h3>
+                    <p>A full production website for a Hajj &amp; Umrah travel agency, designed and built in about 2 weeks. Reached the #1 Google ranking for its primary search terms after launch. Includes 55+ Makkah hotels and 47+ Madinah hotels in reusable data modules.</p>
+                    <ul class="badges"><li>Next.js</li><li>React</li><li>Tailwind CSS</li><li>Node.js</li><li>Cloudinary</li></ul>
+                    <!-- <a class="card-link" href="https://dostumrah.com" target="_blank" rel="noopener noreferrer">View Project &rarr;</a> -->
+                </article>
+                <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/planStudy.jpeg" alt="PlanIQ AI study planner app" loading="lazy"></div>
+                    <h3>PlanIQ</h3>
+                    <p>A full-stack AI study planner with secure authentication, task management, AI-generated schedules, email reminders and PDF reporting.</p>
+                    <ul class="badges"><li>Next.js</li><li>TypeScript</li><li>Prisma</li><li>MySQL</li><li>Gemini API</li></ul>
+                    <!-- <a class="card-link" href="YOUR_URL" target="_blank" rel="noopener noreferrer">View Project &rarr;</a> -->
+                </article>
+                <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/appStore.jpg" alt="iOS app published on the App Store" loading="lazy"></div>
+                    <h3>iOS App on the App Store</h3>
+                    <p>My first native iOS app, built with Swift and published on the App Store. A second app is currently in progress.</p>
+                    <ul class="badges"><li>Swift</li><li>iOS</li></ul>
+                    <!-- <a class="card-link" href="YOUR_URL" target="_blank" rel="noopener noreferrer">View Project &rarr;</a> -->
+                </article>
+            </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="section">
-            <h2>Contact</h2>
+            <div class="section-head reveal">
+                <h2>Contact</h2>
+                <p>Have a project in mind? Send a message and I'll get back to you.</p>
+            </div>
+            <div class="card-grid contact-grid">
+                <a class="card contact-card reveal" href="mailto:rsajiddev@gmail.com">
+                    <svg class="icon"><use href="#i-mail"/></svg>
+                    <h3>Email</h3><p>rsajiddev@gmail.com</p>
+                </a>
+                <a class="card contact-card reveal" href="https://wa.me/923012496214" target="_blank" rel="noopener noreferrer">
+                    <svg class="icon"><use href="#i-phone"/></svg>
+                    <h3>Phone / WhatsApp</h3><p>0301-2496214</p>
+                </a>
+                <div class="card contact-card reveal">
+                    <svg class="icon"><use href="#i-pin"/></svg>
+                    <h3>Location</h3><p>Sadiqabad, Pakistan</p>
+                </div>
+            </div>
+            <ul class="social reveal">
+                <li><a href="YOUR_URL" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-facebook"/></svg></a></li>
+                <li><a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-whatsapp"/></svg></a></li>
+                <li><a href="YOUR_URL" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+                <li><a href="YOUR_URL" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                <li><a href="YOUR_URL" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+            </ul>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="copyrightText">
-            <p>&copy; 2026 Raza. All rights reserved.</p>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#hero" class="nav-logo">CodaZ</a>
+                <p>Building digital products for real-world needs.</p>
+            </div>
+            <nav class="footer-col" aria-label="Quick links">
+                <h4>Quick Links</h4>
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul class="social">
+                    <li><a href="YOUR_URL" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                    <li><a href="YOUR_URL" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                    <li><a href="YOUR_URL" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-instagram"/></svg></a></li>
+                    <li><a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-whatsapp"/></svg></a></li>
+                </ul>
+            </div>
         </div>
+        <p class="copyrightText">&copy; 2026 Razaullah Sajid. All rights reserved.</p>
     </footer>
 
-    <!-- NAVBAR JAVASCRIPT -->
     <script>
+        /* Navbar */
         const hamburger = document.getElementById("hamburger");
         const navLinks = document.getElementById("navLinks");
 
@@ -138,17 +268,26 @@
             hamburger.setAttribute("aria-expanded", open);
             hamburger.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
         }
+        hamburger.addEventListener("click", () => setMenu(!navLinks.classList.contains("active")));
+        navLinks.querySelectorAll("a").forEach((l) => l.addEventListener("click", () => setMenu(false)));
 
-        hamburger.addEventListener("click", () => {
-            setMenu(!navLinks.classList.contains("active"));
+        /* Remove project image if the file is missing (keeps card tidy) */
+        document.querySelectorAll(".project-thumb img").forEach((img) => {
+            img.addEventListener("error", () => img.remove());
         });
 
-        // Close the mobile menu after choosing a link
-        navLinks.querySelectorAll("a").forEach((link) => {
-            link.addEventListener("click", () => setMenu(false));
-        });
+        /* Scroll reveal */
+        const items = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.15 });
+            items.forEach((el) => io.observe(el));
+        } else {
+            items.forEach((el) => el.classList.add("in"));
+        }
     </script>
-
 </body>
-
 </html>
