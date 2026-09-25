@@ -208,4 +208,4 @@ Image link: https://www.vecteezy.com/vector-art/15435210-web-development-program
   * Accent colour (`#ac8968`) sab jagah same rakha, taake buttons/hover/icons consistent rahein.
 
 
-**Note:** Yeh abhi internship ka **multi-page/advance version** hai (JS ke saath, scroll animation, sticky navbar etc), jabke Week 1 ka official deliverable **HTML + CSS only, static, no JavaScript** portfolio hai. Submission ke waqt is baat ka khayal rakhna hoga ke Week 1 ki requirement alag hai aur ye portfolio uske aagay ka kaam hai. main ne requirement ko zehen me rakhty hoy yeh built kia hai
+**Note:** Yeh abhi internship ka **multi-page/advance version** hai (JS ke saath, scroll animation, sticky navbar etc), jabke Week 1 ka official deliverable **HTML + CSS only, static, no JavaScript** portfolio hai. Submission ke waqt is baat ka khayal rakhna hoga ke Week 1 ki requirement alag hai aur ye portfolio uske aagay ka kaam hai. main ne requirement ko zehen me rakhty hoy yeh built kia hai main jitni JS required hai utni use ki hai.
