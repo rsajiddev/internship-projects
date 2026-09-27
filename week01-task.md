@@ -1,206 +1,27 @@
-### Tech SG Studio - Internship week 01 tasks
+# Week 01 — Portfolio Website
 
-### Week 1 Tasks
+## Project
 
-* **Development environment setup** -> already done
+**RIZ BUILDS** is a responsive portfolio for Raza - Ullah Sajid, showcasing web and iOS development alongside creative services.
 
-  * VS Code install aur setup karna.
-  * Chrome ya Firefox with Developer Tools use karna.
-  * GitHub account create/setup karna. 
+## Pages
 
-* **HTML fundamentals** -> already done
+- **Home:** introduction, skills marquee, services preview and three selected projects.
+- **Services:** eight service cards and a four-step working process.
+- **Projects:** case studies for Dost Umrah Service, PlanIQ and a published iOS app, plus a project-focused workflow.
+- **About:** background, experience, skills, working approach and areas of work.
+- **Contact:** contact details and a project inquiry form.
+- **Terms & Privacy:** service terms, project expectations and privacy information.
 
-  * Basic HTML document structure samajhna.
-  * `<!DOCTYPE html>`, `<html>`, `<head>` aur `<body>` ka use karna.
-  * Common HTML tags practice karna:
+## Implementation
 
-    * Headings: `<h1>`, `<h2>`
-    * Paragraphs: `<p>`
-    * Links: `<a>`
-    * Images: `<img>`
-    * Lists: `<ul>`, `<li>`
-    * Containers: `<div>`, `<span>` 
+- Semantic HTML, shared CSS and vanilla JavaScript; no framework or build step.
+- Responsive layouts using Flexbox, CSS Grid and tablet/mobile breakpoints.
+- Consistent monochrome styling with glass-effect cards, shared calls to action and project cards.
+- Interactive mobile navigation, scroll-reveal effects, social links and a WhatsApp contact button.
+- Contact form supports multiple file selection and previews file names/sizes; it is UI-only and does not submit data or upload files.
+- Local project/profile images are in `week-01/week-01/images/`. Google Fonts and Devicon are loaded externally.
 
-* **HTML Forms & Tables** -> already done
+## Week 1 Status
 
-  * Basic contact form create karna.
-  * `<form>`, `<label>`, `<input>`, `<textarea>` aur `<button>` use karna.
-  * Basic HTML tables banana using `<table>`, `<tr>`, `<th>` and `<td>`. 
-
-* **Semantic HTML** -> already done
-
-  * Generic `<div>` ki jagah semantic elements use karna:
-
-    * `<header>`
-    * `<nav>`
-    * `<main>`
-    * `<section>`
-    * `<article>`
-    * `<footer>`
-  * Semantic structure ko accessibility aur SEO ke liye correctly use karna. 
-
-* **CSS fundamentals** -> already done
-
-  * HTML ke saath external CSS file connect karna.
-  * CSS selectors practice karna:
-
-    * Element selector
-    * Class selector
-    * ID selector
-  * Colours, typography, font size, font weight, line height aur text alignment apply karna. 
-
-* **CSS Box Model** -> already done
-
-  * `Content`
-  * `Padding`
-  * `Border`
-  * `Margin`
-  * In properties ko practical CSS mein use karna. 
-
-* **CSS Units** -> already done
-
-  * `px`
-  * `%`
-  * `em`
-  * `rem`
-  * Responsive sizing ke liye relative units ko samajhna, especially `rem`. 
-
-* **Flexbox** -> already done
-
-  * `display: flex` -> navbar me use ho raha hai.
-  * `flex-direction`
-  * `justify-content`
-  * `align-items`
-  * `gap`
-  * Flexbox se row/column layouts banana. 
-
-* **CSS Grid** -> will be cover in services section in portfolio
-
-  * Basic Grid layout samajhna.
-  * Rows aur columns ke saath layouts create karna.
-  * `grid-template-columns`, `grid-template-rows` aur `gap` practice karna. 
-
-* **Responsive Design**
-
-  * Website ko mobile, tablet aur desktop screens ke liye responsive banana.
-  * Relative units, Flexbox/Grid aur media queries use karna.
-  * `@media` queries ke through mobile-specific layouts banana. 
-
-### Final Week 1 Project
-
-* **HTML & CSS only** se ek **static personal portfolio website** build karni hai.
-* **JavaScript use nahi karna.**
-* Portfolio mein minimum:
-
-  * Header + Navigation
-  * About section
-  * Projects **ya** Skills section
-  * Footer
-* Semantic HTML tags use karne hain.
-* At least **one Flexbox layout** implement karna hai.
-* Page ko responsive banana hai.
-* Project **Sunday 9:00 PM** tak submit karna hai. 
-
-**Short version:** Week 1 ka actual deliverable ek **responsive static portfolio website using HTML + CSS, without JavaScript** hai.
-
-### DEADLINE: SUNDAY 9:00AM
-------
-Resources:
-Google fonts links:
-  https://fonts.googleapis.com
-  https://fonts.gstatic.com
-  https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap
-
-Image link: https://www.vecteezy.com/vector-art/15435210-web-development-programmer-engineering-website
-
-------
-
-### Portfolio mein ab tak jo implement ho chuka hai (progress summary)
-
-* **Global setup**
-
-  * `Space Mono` Google Font connect kiya.
-  * Global reset (`*`, `box-sizing: border-box`).
-  * `html { scroll-behavior: smooth; }` aur sections par `scroll-margin-top` (sticky navbar ke neeche heading hide na ho, iske liye).
-
-* **Semantic HTML structure**
-
-  * `<header>`, `<nav>`, `<main>`, multiple `<section id="...">`, `<footer>` use kiye.
-  * Har section ka apna `id` hai: `hero`, `services`, `skills`, `about`, `projects`, `contact`.
-
-* **Navbar**
-
-  * Sticky navbar, desktop aur mobile dono par.
-  * Same-page anchor links (`<a href="#services">`).
-  * Hamburger menu sirf mobile par, JavaScript se open/close (`aria-expanded`, `aria-label` bhi update hota hai).
-  * Hover/active states, subtle transitions.
-
-* **Hero Section**
-
-  * Flexbox layout (`display: flex`, `justify-content: space-between`, `align-items: center`).
-  * Real profile intro (background, experience, SEO result) CV se liya gaya.
-  * Do CTA buttons (`View My Work` -> `#projects`, `Let's Connect` -> `#contact`).
-  * Stat cards (Flexbox row) aur ek image card jisme `object-fit: cover`, `border-radius`, glass-style caption hai.
-
-* **Services Section**
-
-  * CSS Grid based card layout (`grid-template-columns: repeat(3, 1fr)`).
-  * Inline SVG icons (koi external icon library use nahi ki).
-  * Consistent card design: icon, title, description, border, hover effect.
-
-* **Skills Section**
-
-  * Grid layout mein technology categories (Languages, Frameworks, Mobile, Tools).
-  * Har skill ek "badge" style list item hai (`.badges`), boring list ki jagah.
-
-* **About Section**
-
-  * Two-column Grid layout: image + text.
-  * Experience/education stats chhote info cards mein (Flexbox/Grid mix).
-
-* **Projects Section**
-
-  * Grid based project cards: image, title, description, technology badges, "View Project ->" link.
-  * Real projects CV se liye: Dost Umrah Service aur PlanIQ.
-
-* **Social Icons & Contact**
-
-  * Facebook, WhatsApp, Instagram, GitHub, LinkedIn sab inline SVG hain.
-  * Proper `aria-label`, hover animation, consistent sizing.
-  * Contact section mein email aur WhatsApp number CV se real data hai.
-
-* **Card Design System**
-
-  * Ek hi consistent card style (`.card` class) Services, Skills, About stats, Projects aur Contact sab jagah reuse ho raha hai — border, radius, padding, hover sab same.
-
-* **Footer**
-
-  * Simple copyright se aagay: brand text, Quick Links, Social icons, copyright line — sab semantic `<footer>` ke andar.
-
-* **Scroll Reveal Animation**
-
-  * `IntersectionObserver` (JavaScript) se `.reveal` class wale elements fade-up hote hain jab scroll karte hain.
-  * `prefers-reduced-motion` ka bhi khayal rakha gaya hai.
-
-* **Responsive Design**
-
-  * Har section ke liye desktop, tablet (1024px) aur mobile (768px) breakpoints already implemented hain.
-  * `@media` queries se navbar, hero, cards, about aur footer sab stack/resize hote hain.
-
-* **Code Architecture**
-
-  * CSS logically organised hai: Theme -> Global -> Navbar -> Buttons -> Cards -> Hero -> Services/Skills -> About -> Projects -> Contact/Social -> Footer -> Animations -> Responsive.
-  * HTML mein bhi comments se sections clearly separate hain.
-
-* **Theme evolution (Kozowood → light/dark mix → final Black & White)**
-
-  * Shuru mein Kozowood reference image se 5-colour warm palette liya gaya tha (`3E362E`, `865D36`, `93785B`, `AC8968`, `A69080`), sab kuch ek hi dark tone mein tha.
-  * Phir poori site ek hi dark tone mein flat lag rahi thi, isliye **Hero aur Footer** ko dark aur **Services/Skills/About/Projects/Contact** ko warm cream (light) background diya gaya — dark/light mix theme.
-  * Feedback ke baad final decision: poori site ko **complete Black & White (monochrome) theme** mein convert kar diya gaya.
-
-    * Hero, Navbar, Footer -> pure black background (`#0d0d0d`), white text/accent.
-    * Services, Skills, About, Projects, Contact -> light grey background (`#efefef`), white cards, black text.
-    * Do separate accent variables banaye: `--accent` (white, dark backgrounds ke liye) aur `--accent-strong` (black, light backgrounds ke liye), taake har element apne background ke hisaab se sahi contrast le.
-    * Isi pass mein kuch chhupe contrast bugs bhi fix kiye (About stats, social icons, hover states) jo warna white-on-white ho kar invisible ho jate.
-
-**Note (JavaScript usage):** Portfolio ka final/advance version internship requirement se aagay jata hai — isme JavaScript use hui hai (hamburger menu toggle, broken image handling, scroll-reveal animation). Ye JS sirf utni hi rakhi gayi hai jitni genuinely required thi (jaisa requirement mein bhi likha tha: "jahan interaction genuinely required ho wahan minimal JavaScript use hoga") — koi extra/unnecessary JS add nahi ki gayi. Week 1 ka official deliverable phir bhi **HTML + CSS only, static, no JavaScript** portfolio hai, isliye submission ke waqt is farq ka khayal rakhna hoga: ye portfolio Week 1 ke aagay ka, advance kaam hai.
+Core HTML, CSS, semantic structure, forms, Flexbox, Grid and responsive design are implemented. The current portfolio extends the original static HTML/CSS brief with small JavaScript interactions; it has no backend or form submission service.
