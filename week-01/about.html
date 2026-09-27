@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About Raza - Ullah Sajid (RIZ BUILDS) - Computer Science student, Web and iOS developer, with years of practical video editing and graphic design experience.">
+    <title>About | Raza - Ullah Sajid - RIZ BUILDS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+
+    <!-- ICON SPRITE (inline SVG, no external library) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-phone" viewBox="0 0 24 24">
+            <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+            <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+        </symbol>
+        <symbol id="i-mobile" viewBox="0 0 24 24">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" />
+        </symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+        </symbol>
+        <symbol id="i-layout" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <line x1="3" y1="9" x2="21" y2="9" />
+            <line x1="9" y1="21" x2="9" y2="9" />
+        </symbol>
+        <symbol id="i-brief" viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </symbol>
+        <symbol id="i-palette" viewBox="0 0 24 24">
+            <path
+                d="M12 2a10 10 0 1 0 0 20c1.1 0 2-.9 2-2 0-.5-.2-1-.5-1.4-.3-.4-.5-.9-.5-1.4 0-1.1.9-2 2-2h2.4a3.6 3.6 0 0 0 3.6-3.6C21 6.4 17 2 12 2z" />
+            <circle cx="7.5" cy="11.5" r="1.1" />
+            <circle cx="10.5" cy="7.5" r="1.1" />
+            <circle cx="15" cy="8" r="1.1" />
+            <circle cx="17" cy="12" r="1.1" />
+        </symbol>
+        <symbol id="i-film" viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="1" />
+            <path d="M2 7l3-4h4l-3 4z" />
+            <path d="M9 7l3-4h4l-3 4z" />
+            <path d="M16 7l3-4h3v4z" />
+        </symbol>
+        <symbol id="i-crop" viewBox="0 0 24 24">
+            <path d="M6 2v14a2 2 0 0 0 2 2h14" />
+            <path d="M18 22V8a2 2 0 0 0-2-2H2" />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 24 24">
+            <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+        </symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </symbol>
+        <symbol id="i-facebook" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+        </symbol>
+        <symbol id="i-whatsapp" viewBox="0 0 24 24">
+            <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+        </symbol>
+    </svg>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/923012496214" class="whatsapp-float" aria-label="Need help? Chat on WhatsApp" target="_blank"
+        rel="noopener noreferrer">
+        <svg class="icon">
+            <use href="#i-whatsapp" />
+        </svg>
+        <span>Need help?</span>
+    </a>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav-brand"><a href="index.html" class="nav-logo">RIZ BUILDS</a></div>
+            <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false"
+                aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html" class="active" aria-current="page">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="about reveal">
+                <figure class="about-image">
+                    <img src="images/portfolio-img2.jpg" alt="Raza - Ullah Sajid working as a developer" width="600"
+                        height="750" loading="lazy">
+                </figure>
+                <div class="about-body">
+                    <h2>About Me</h2>
+                    <p>
+                        I'm Raza - Ullah Sajid, a Computer Science student and Web Developer from Kot Sabzal,
+                        Pakistan. I enjoy turning practical requirements into digital products, taking work from
+                        early structure and interface decisions through implementation, testing and launch. My
+                        web work spans responsive websites and applications built with HTML, CSS, JavaScript,
+                        React, TypeScript and Next.js, with a focus on clear, maintainable code.
+                    </p>
+                    <p>
+                        I'm also growing my mobile development experience: I have built and published a native
+                        iOS app with Swift, and a second app is in progress. Outside development, I bring close
+                        to six years of practical video-editing experience and roughly three to four years in
+                        graphic design. Working across technical and creative projects has helped me think about
+                        both how a product works and how it communicates with the people using it.
+                    </p>
+                    <div class="about-cards">
+                        <div class="stat-card"><strong>3 years</strong><span>Web development</span></div>
+                        <div class="stat-card"><strong>~6 years</strong><span>Video editing practice</span></div>
+                        <div class="stat-card"><strong>#1 ranking</strong><span>Google, for a client's primary search
+                                terms</span></div>
+                        <div class="stat-card"><strong>BSCS, 7th sem</strong><span>College Sadiqabad, Islamia University
+                                of Bahawalpur</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEVELOPMENT & CREATIVE EXPERIENCE -->
+        <section id="experience" class="section">
+            <div class="section-head reveal">
+                <h2>Experience</h2>
+                <p>My experience combines hands-on software development, independent client delivery and several years
+                    of creative production. Each area has strengthened a different part of how I approach a project:
+                    from building reliable interfaces to shaping clear visual communication.</p>
+            </div>
+            <div class="card-grid">
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-code" />
+                    </svg>
+                    <h3>Development Experience</h3>
+                    <p>
+                        For about three years I've worked hands-on with HTML, CSS and JavaScript, building
+                        responsive websites and web applications. I use React and TypeScript to create
+                        component-based front ends, and have worked with Next.js and Node.js on complete web
+                        products. I also built and published a native iOS app with Swift, gaining experience with
+                        app interfaces, core user flows and the App Store release process.
+                    </p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-film" />
+                    </svg>
+                    <h3>Video Editing</h3>
+                    <p>
+                        I've been editing video for close to six years, including about eight months in a
+                        professional, client-facing video editor role. My work has included YouTube channels
+                        and wedding-related content, where pacing and a clear visual sequence help keep the
+                        story engaging and easy to follow.
+                    </p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-palette" />
+                    </svg>
+                    <h3>Graphic Design</h3>
+                    <p>
+                        For roughly three to four years, I've created graphic and visual content alongside my
+                        development and video work. This experience helps me consider visual hierarchy,
+                        consistency and how design choices support the message a project needs to communicate.
+                    </p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-brief" />
+                    </svg>
+                    <h3>Freelancing &amp; Client Work</h3>
+                    <p>
+                        Through freelancing, I've taken real client requirements and delivered working web
+                        projects, including a Hajj and Umrah travel-agency website. That site reached the #1
+                        Google ranking for its primary search terms after launch. I also consider practical
+                        launch details such as page structure and on-page SEO, so the work is prepared for use
+                        beyond development.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL APPROACH -->
+        <section id="approach" class="section">
+            <div class="section-head reveal">
+                <h2>Professional Approach</h2>
+                <p>
+                    I work as a solo developer, taking responsibility for the connected parts of a project
+                    instead of treating design, implementation and delivery as separate handoffs. This gives
+                    clients a direct point of contact and keeps decisions grounded in the project's goals,
+                    users and technical requirements.
+                </p>
+            </div>
+            <div class="card-grid">
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-brief" />
+                    </svg>
+                    <h3>End-to-End Ownership</h3>
+                    <p>I stay involved from understanding the requirements through building and preparing the final
+                        product. That continuity helps keep the original goals visible as implementation details take
+                        shape.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-layout" />
+                    </svg>
+                    <h3>Thoughtful Implementation</h3>
+                    <p>I aim for responsive interfaces, reusable structures and practical technical choices. I consider
+                        how pages and features fit together, not just how an individual screen looks.</p>
+                </article>
+                <article class="card reveal">
+                    <svg class="icon">
+                        <use href="#i-code" />
+                    </svg>
+                    <h3>Learning Through Delivery</h3>
+                    <p>I build on completed work while continuing to develop my skills. In mobile development, I have
+                        published a Swift iOS app and continue learning with guidance from a senior iOS developer.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section">
+            <div class="section-head reveal">
+                <h2>Skills &amp; Tools</h2>
+                <p>These are the technologies I use across my web and mobile projects. I choose tools according to the
+                    requirements of the product, with an emphasis on maintainable implementation and a reliable
+                    experience across devices.</p>
+            </div>
+            <div class="card-grid skills-grid">
+                <article class="card reveal">
+                    <h3>Languages &amp; Core</h3>
+                    <ul class="badges">
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>TypeScript</li>
+                        <li>Node.js</li>
+                    </ul>
+                    <p class="card-note">Used to build page structure, responsive styling, interactive interfaces and
+                        server-side functionality.</p>
+                </article>
+                <article class="card reveal">
+                    <h3>Frameworks &amp; Libraries</h3>
+                    <ul class="badges">
+                        <li>Next.js</li>
+                        <li>React</li>
+                        <li>Tailwind CSS</li>
+                        <li>Prisma</li>
+                    </ul>
+                    <p class="card-note">Tools I use for component-based web experiences, styling and working with
+                        application data.</p>
+                </article>
+                <article class="card reveal">
+                    <h3>iOS Development</h3>
+                    <ul class="badges">
+                        <li>Swift</li>
+                        <li>iOS</li>
+                        <li>App Store</li>
+                    </ul>
+                    <p class="card-note">I have built and published a Swift iOS app on the App Store. My work focuses on
+                        native interfaces, considered user flows and continuing to improve the app experience.</p>
+                </article>
+                <article class="card reveal">
+                    <h3>Tools &amp; Platforms</h3>
+                    <ul class="badges">
+                        <li>Git</li>
+                        <li>MySQL</li>
+                        <li>Cloudinary</li>
+                        <li>Gemini API</li>
+                        <li>SEO basics</li>
+                    </ul>
+                    <p class="card-note">Used where projects need version control, relational data, media handling, AI
+                        integration or on-page search fundamentals.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERTISE / EXPERIENCE CARDS -->
+        <section id="expertise" class="section">
+            <div class="section-head reveal">
+                <h2>Areas of Work</h2>
+                <p>My work spans development and creative production. These areas can stand alone or complement one
+                    another, depending on what a project needs and how its content will be experienced.</p>
+            </div>
+            <div class="card-grid experience-grid">
+                <article class="card experience-card reveal">
+                    <div class="exp-img"><img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg"
+                            alt="Web developer working at a computer" loading="lazy"></div>
+                    <div class="exp-body">
+                        <h3>Web &amp; App Development</h3>
+                        <p>I build responsive websites and web applications with HTML, CSS, JavaScript, React,
+                            TypeScript and Next.js. I also develop native iOS apps with Swift, connecting polished
+                            interfaces and clear user flows with each product's features and data.</p>
+                    </div>
+                </article>
+                <article class="card experience-card reveal">
+                    <div class="exp-img"><img src="https://images.pexels.com/photos/20456575/pexels-photo-20456575.jpeg"
+                            alt="Graphic design workspace with creative materials" loading="lazy"></div>
+                    <div class="exp-body">
+                        <h3>Graphic Design</h3>
+                        <p>With roughly three to four years of experience, I create visual and graphic content for
+                            digital use. I pay attention to hierarchy, consistency and how imagery and layout help
+                            communicate an idea clearly.</p>
+                    </div>
+                </article>
+                <article class="card experience-card reveal">
+                    <div class="exp-img"><img src="https://images.pexels.com/photos/4765390/pexels-photo-4765390.jpeg"
+                            alt="Video editor working on a video production" loading="lazy"></div>
+                    <div class="exp-body">
+                        <h3>Video Editing</h3>
+                        <p>With close to six years of practice, including about eight months in a professional role, I
+                            edit content such as YouTube videos. I focus on sequencing footage and shaping pacing so the
+                            finished edit supports its subject and audience.</p>
+                    </div>
+                </article>
+                <article class="card experience-card reveal">
+                    <div class="exp-img"><img src="https://images.pexels.com/photos/11894290/pexels-photo-11894290.jpeg"
+                            alt="Photo editing and visual retouching on a screen" loading="lazy"></div>
+                    <div class="exp-body">
+                        <h3>Photo Editing</h3>
+                        <p>I refine photographs and other visual assets to support design and content projects.
+                            Adjustments are guided by the intended style and use, helping images sit consistently within
+                            the wider piece.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT CTA -->
+        <section id="cta" class="section">
+            <div class="cta-banner reveal">
+                <div class="cta-copy">
+                    <span class="cta-eyebrow">LET'S WORK TOGETHER</span>
+                    <h2>Have a project in mind?</h2>
+                    <p>Whether you need a website, an app or creative support, tell me what you’re aiming to achieve.
+                        I’ll get back to you to discuss the scope and a practical next step.</p>
+                    <div class="cta-actions">
+                        <a href="contact.html#contact" class="btn btn-primary">Start a project <span
+                                aria-hidden="true">&rarr;</span></a>
+                        <a href="https://wa.me/923012496214" class="btn btn-secondary" target="_blank"
+                            rel="noopener noreferrer">Chat on WhatsApp</a>
+                    </div>
+                </div>
+                <div class="cta-contact">
+                    <h3>Get in touch</h3>
+                    <a href="mailto:rsajiddev@gmail.com">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-mail" />
+                        </svg>
+                        <span><small>Email</small>rsajiddev@gmail.com</span>
+                    </a>
+                    <a href="tel:+923012496214">
+                        <svg class="icon" aria-hidden="true">
+                            <use href="#i-phone" />
+                        </svg>
+                        <span><small>Phone / WhatsApp</small>0301-2496214</span>
+                    </a>
+                </div>
+                <ul class="social cta-social" aria-label="Social media">
+                    <li>
+                        <a href="https://github.com/rsajiddev" aria-label="GitHub" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                                <use href="#i-github" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/rsajiddev" aria-label="LinkedIn" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                                <use href="#i-linkedin" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/_.razzza/?__pwa=1" aria-label="Instagram" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                                <use href="#i-instagram" />
+                            </svg></a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon" aria-hidden="true">
+                                <use href="#i-whatsapp" />
+                            </svg></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="nav-logo">RIZ BUILDS</a>
+                <p>The independent portfolio of Raza - Ullah Sajid — a solo developer delivering web, mobile and
+                    creative projects end-to-end.</p>
+            </div>
+            <nav class="footer-col" aria-label="Quick links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h4>Social</h4>
+                <ul class="social">
+                    <li><a href="https://github.com/rsajiddev" aria-label="GitHub" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
+                                <use href="#i-github" />
+                            </svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/rsajiddev" aria-label="LinkedIn" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
+                                <use href="#i-linkedin" />
+                            </svg></a></li>
+                    <li><a href="https://www.instagram.com/_.razzza/?__pwa=1" aria-label="Instagram" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
+                                <use href="#i-instagram" />
+                            </svg></a></li>
+                    <li><a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
+                                <use href="#i-whatsapp" />
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyrightText">&copy; 2026 Raza - Ullah Sajid. All rights reserved.</p>
+    </footer>
+
+    <script>
+        /* Navbar */
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        function setMenu(open) {
+            navLinks.classList.toggle("active", open);
+            hamburger.classList.toggle("active", open);
+            hamburger.setAttribute("aria-expanded", open);
+            hamburger.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        }
+        hamburger.addEventListener("click", () => setMenu(!navLinks.classList.contains("active")));
+        navLinks.querySelectorAll("a").forEach((l) => l.addEventListener("click", () => setMenu(false)));
+
+        /* Remove project image if the file is missing (keeps card tidy) */
+        document.querySelectorAll(".project-thumb img").forEach((img) => {
+            img.addEventListener("error", () => img.remove());
+        });
+
+        /* Scroll reveal */
+        const items = document.querySelectorAll(".reveal");
+        if ("IntersectionObserver" in window) {
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((e) => {
+                    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.15 });
+            items.forEach((el) => io.observe(el));
+        } else {
+            items.forEach((el) => el.classList.add("in"));
+        }
+    </script>
+</body>
+
+</html>

@@ -5,18 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="RIZ BUILDS - Raza-Ullah Sajid's independent portfolio. Web and iOS developer, video editor and graphic designer based in Sadiqabad, Pakistan.">
-    <title>Raza - Ullah Sajid | RIZ BUILDS - Web &amp; iOS Developer</title>
+        content="Projects by Raza - Ullah Sajid (RIZ BUILDS) - independently planned, built and delivered web and mobile projects, including a travel agency website and an AI study planner.">
+    <title>Projects | Raza - Ullah Sajid - RIZ BUILDS</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-
-    <!-- Devicon -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-
     <link rel="stylesheet" href="style.css">
     <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -118,9 +114,9 @@
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
-                <a href="projects.html">Projects</a>
+                <a href="projects.html" class="active" aria-current="page">Projects</a>
                 <a href="about.html">About</a>
                 <a href="contact.html">Contact</a>
             </div>
@@ -129,191 +125,105 @@
 
     <main>
 
-        <!-- HERO -->
-        <section class="hero" id="hero">
-            <div class="hero-text">
-                <h1>Web &amp; iOS Developer Building Real-World Digital Products</h1>
-                <p class="hero-lead">
-                    I'm Raza - Ullah Sajid, a Web Developer with 3 years of hands-on experience building websites
-                    and web applications using HTML, CSS, JavaScript, Node.js, React.js and Next.js. I also build native
-                    iOS apps with Swift, with one app already live on the App Store.
-                </p>
-                <p class="hero-sub">
-                    I take projects end-to-end, from component architecture and responsive UI to deployment and SEO.
-                    My travel agency website reached the #1 Google ranking for its primary search terms shortly after
-                    launch.
-                </p>
-                <div class="hero-cta">
-                    <a href="projects.html" class="btn btn-primary">View My Work</a>
-                    <a href="contact.html" class="btn btn-secondary">Let's Connect</a>
-                </div>
-                <ul class="hero-stats">
-                    <li class="stat-card"><strong>3 years</strong><span>Web development</span></li>
-                    <li class="stat-card"><strong>1 app live</strong><span>on the App Store</span></li>
-                </ul>
+        <!-- HOW I WORK -->
+        <section id="process" class="section">
+            <div class="section-head reveal">
+                <h2>How I Work</h2>
+                <p>Each project has different technical needs, so I shape the build around its platform, users and
+                    launch requirements. As a solo developer, I handle the implementation end-to-end and keep the key
+                    decisions—from structure to release—connected throughout the work.</p>
             </div>
-            <div class="hero-visual">
-                <figure class="hero-image-card">
-                    <img src="images/portfolio-img1.jpg" alt="Portrait of Raza - Ullah Sajid, Web and iOS Developer"
-                        width="600" height="750">
-                    <figcaption class="glass-card">
-                        <h2>Raza - Ullah Sajid</h2>
-                        <p>Next.js, React, Swift and creative work. Turning client requirements into working products.
-                        </p>
-                    </figcaption>
+            <div class="card-grid project-process-grid">
+                <article class="card project-process-step reveal">
+                    <span class="step-number">01</span>
+                    <h3>Map the Product</h3>
+                    <p>I translate the project requirements into a practical feature and page structure. This
+                        establishes how people will move through the product and identifies the data, integrations and
+                        platform constraints the build needs to support.</p>
+                </article>
+                <article class="card project-process-step reveal">
+                    <span class="step-number">02</span>
+                    <h3>Build the Core</h3>
+                    <p>I implement the product around its actual use cases, connecting the interface to the required
+                        application logic and data. Reusable components and clear structure help keep the codebase
+                        easier to extend as features evolve.</p>
+                </article>
+                <article class="card project-process-step reveal">
+                    <span class="step-number">03</span>
+                    <h3>Validate Key Flows</h3>
+                    <p>I check the important user journeys and the behavior of features such as authentication, forms,
+                        scheduling or content navigation, depending on the project. I also review responsive layouts and
+                        refine issues found during testing.</p>
+                </article>
+                <article class="card project-process-step reveal">
+                    <span class="step-number">04</span>
+                    <h3>Prepare for Release</h3>
+                    <p>I complete the project-specific launch steps, whether that means preparing a website for
+                        deployment or building and publishing an iOS app. After delivery, I can help address agreed
+                        fixes and improvements as the product develops.</p>
+                </article>
             </div>
-            <a href="#marquee" class="scroll-hint" aria-label="Scroll down">&darr; Scroll</a>
         </section>
 
-        <!-- TECH MARQUEE -->
-        <div class="marquee" id="marquee" aria-hidden="true">
-            <div class="marquee-track">
-                <span class="marquee-item">
-                    <i class="devicon-html5-plain-wordmark colored"></i>HTML
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-tailwindcss-original colored"></i>Tailwind CSS
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-javascript-plain colored"></i>JavaScript
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-react-original colored"></i>React
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-typescript-plain colored"></i>TypeScript
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-swift-plain colored"></i>Swift / iOS
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-github-original colored"></i>GitHub
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-php-plain colored"></i>PHP
-                </span>
-                <span class="marquee-item">
-
-                    <i class="devicon-nextjs-plain"></i>Next.js
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-azuresqldatabase-plain colored"></i>SQL
-                </span>
-
-                <span class="marquee-item">
-                    <i class="devicon-html5-plain-wordmark colored"></i>HTML
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-tailwindcss-original colored"></i>Tailwind CSS
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-javascript-plain colored"></i>JavaScript
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-react-original colored"></i>React
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-typescript-plain colored"></i>TypeScript
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-swift-plain colored"></i>Swift / iOS
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-github-original colored"></i>GitHub
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-php-plain colored"></i>PHP
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-nextjs-original-wordmark"></i>Next.js
-                </span>
-                <span class="marquee-item">
-                    <i class="devicon-azuresqldatabase-plain colored"></i>SQL
-                </span>
-            </div>
-        </div>
-
-        <!-- WHAT I DO (teaser) -->
-        <section id="highlights" class="section">
+        <!-- PROJECTS -->
+        <section id="projects" class="section">
             <div class="section-head reveal">
-                <h2>What I Do</h2>
-                <p>A quick look at what I offer — see the full list on the Services page.</p>
-            </div>
-            <div class="card-grid">
-                <article class="card reveal">
-                    <svg class="icon">
-                        <use href="#i-globe" />
-                    </svg>
-                    <h3>Web Development</h3>
-                    <p>Fast, responsive websites and web applications built with Next.js, React and Node.js.</p>
-                </article>
-                <article class="card reveal">
-                    <svg class="icon">
-                        <use href="#i-mobile" />
-                    </svg>
-                    <h3>iOS App Development</h3>
-                    <p>Native iOS apps built with Swift, with hands-on experience taking an app from development
-                        through publication on the App Store.</p>
-                </article>
-                <article class="card reveal">
-                    <svg class="icon">
-                        <use href="#i-film" />
-                    </svg>
-                    <h3>Creative Services</h3>
-                    <p>Video editing and graphic design, backed by several years of practical creative work.</p>
-                </article>
-            </div>
-            <a href="services.html" class="section-link reveal">View all services &rarr;</a>
-        </section>
-
-        <!-- SELECTED WORK (teaser) -->
-        <section id="work" class="section">
-            <div class="section-head reveal">
-                <h2>Selected Work</h2>
-                <p>A selection of web and mobile projects I've planned, built and delivered independently. Explore the
-                    project page for more about the features, technologies and work behind each one.</p>
+                <h2>Projects</h2>
+                <p>Explore a selection of products I have built independently, from a live travel-agency website to a
+                    full-stack AI study planner and a published iOS app. Each project brought its own requirements,
+                    technical decisions and delivery process.</p>
             </div>
             <div class="card-grid projects-grid">
                 <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/dostUmrah.jpg"
+                            alt="Dost Umrah Service travel agency website" loading="lazy"></div>
                     <h3>Dost Umrah Service</h3>
-                    <p>A production website for a Hajj &amp; Umrah travel agency, built in about two weeks. It organizes
-                        destination and hotel information using reusable data modules, and reached the #1 Google ranking
-                        for its primary search terms after launch.</p>
+                    <p>A production website for a Hajj &amp; Umrah travel agency, designed and built in about two weeks.
+                        It organizes destination and hotel information for travelers, with reusable data modules
+                        covering 55+ Makkah hotels and 47+ Madinah hotels. After launch, the site reached the #1 Google
+                        ranking for its primary search terms.</p>
+                    <p class="role-label">My role: sole developer, responsible for UI design, the frontend and backend
+                        build, structuring hotel data for reuse, and on-page SEO through delivery.</p>
                     <ul class="badges">
                         <li>Next.js</li>
                         <li>React</li>
                         <li>Tailwind CSS</li>
+                        <li>Node.js</li>
+                        <li>Cloudinary</li>
                     </ul>
-                    <a class="project-details-link" href="projects.html#projects"
-                        aria-label="See Dost Umrah Service project details">See details <span
-                            aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/planStudy.jpeg" alt="PlanIQ AI study planner app"
+                            loading="lazy"></div>
                     <h3>PlanIQ</h3>
-                    <p>A full-stack AI study planner with secure authentication, task management, AI-generated
-                        schedules, email reminders and PDF reporting to help users organize and review their study
-                        plans.</p>
+                    <p>A full-stack study-planning application that brings study tasks and schedules together in one
+                        place. It includes secure authentication, task management, AI-generated schedules, email
+                        reminders and PDF reporting to help users organize and review their plans.</p>
+                    <p class="role-label">My role: sole developer, building the full stack including authentication,
+                        scheduling logic, Gemini API integration, reminders and PDF reporting.</p>
                     <ul class="badges">
                         <li>Next.js</li>
                         <li>TypeScript</li>
                         <li>Prisma</li>
+                        <li>MySQL</li>
+                        <li>Gemini API</li>
                     </ul>
-                    <a class="project-details-link" href="projects.html#projects"
-                        aria-label="See PlanIQ project details">See details <span aria-hidden="true">&rarr;</span></a>
                 </article>
                 <article class="card project-card reveal">
+                    <div class="project-thumb"><img src="images/appStore.jpg" alt="iOS app published on the App Store"
+                            loading="lazy"></div>
                     <h3>iOS App on the App Store</h3>
-                    <p>My first native iOS app, built with Swift and published on the App Store. A second app is
-                        currently in progress as I continue developing my mobile skills.</p>
+                    <p>My first native iOS app, developed with Swift and published on the App Store. The project gave me
+                        hands-on experience taking an app from implementation through release, and I am currently
+                        working on a second app.</p>
+                    <p class="role-label">My role: independent app development and publishing, with guidance from a
+                        senior iOS developer as I continue building my native iOS skills.</p>
                     <ul class="badges">
                         <li>Swift</li>
                         <li>iOS</li>
                     </ul>
-                    <a class="project-details-link" href="projects.html#projects"
-                        aria-label="See iOS app project details">See details <span aria-hidden="true">&rarr;</span></a>
                 </article>
             </div>
-            <a href="projects.html" class="section-link reveal">View all projects &rarr;</a>
         </section>
 
         <!-- CONTACT CTA -->
@@ -401,38 +311,22 @@
             <div class="footer-col">
                 <h4>Social</h4>
                 <ul class="social">
-                    <li>
-                        <a href="https://github.com/rsajiddev" aria-label="GitHub" target="_blank"
-                            rel="noopener noreferrer">
-                            <svg class="icon">
+                    <li><a href="https://github.com/rsajiddev" aria-label="GitHub" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
                                 <use href="#i-github" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/rsajiddev" aria-label="LinkedIn" target="_blank"
-                            rel="noopener noreferrer">
-                            <svg class="icon">
+                            </svg></a></li>
+                    <li><a href="https://www.linkedin.com/in/rsajiddev" aria-label="LinkedIn" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
                                 <use href="#i-linkedin" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/_.razzza/?__pwa=1" aria-label="Instagram" target="_blank"
-                            rel="noopener noreferrer">
-                            <svg class="icon">
+                            </svg></a></li>
+                    <li><a href="https://www.instagram.com/_.razzza/?__pwa=1" aria-label="Instagram" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
                                 <use href="#i-instagram" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank"
-                            rel="noopener noreferrer">
-                            <svg class="icon">
+                            </svg></a></li>
+                    <li><a href="https://wa.me/923012496214" aria-label="WhatsApp" target="_blank"
+                            rel="noopener noreferrer"><svg class="icon">
                                 <use href="#i-whatsapp" />
-                            </svg>
-                        </a>
-                    </li>
+                            </svg></a></li>
                 </ul>
             </div>
         </div>
@@ -450,7 +344,6 @@
             hamburger.setAttribute("aria-expanded", open);
             hamburger.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
         }
-
         hamburger.addEventListener("click", () => setMenu(!navLinks.classList.contains("active")));
         navLinks.querySelectorAll("a").forEach((l) => l.addEventListener("click", () => setMenu(false)));
 
@@ -461,17 +354,12 @@
 
         /* Scroll reveal */
         const items = document.querySelectorAll(".reveal");
-
         if ("IntersectionObserver" in window) {
             const io = new IntersectionObserver((entries) => {
                 entries.forEach((e) => {
-                    if (e.isIntersecting) {
-                        e.target.classList.add("in");
-                        io.unobserve(e.target);
-                    }
+                    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
                 });
             }, { threshold: 0.15 });
-
             items.forEach((el) => io.observe(el));
         } else {
             items.forEach((el) => el.classList.add("in"));
