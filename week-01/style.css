@@ -1420,40 +1420,6 @@ header {
     position: relative;
 }
 
-.tech-chip {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3.4rem;
-    height: 3.4rem;
-    border-radius: 999px;
-    background-color: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 700;
-    letter-spacing: 0.01em;
-    text-align: center;
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
-    z-index: 2;
-}
-
-.tech-chip-1 { top: -1.25rem; left: 6%; }
-.tech-chip-2 { top: 14%; right: -1.5rem; }
-.tech-chip-3 { top: 46%; left: -1.75rem; }
-.tech-chip-4 { bottom: 20%; right: -1.25rem; }
-.tech-chip-5 { bottom: -1.25rem; left: 22%; }
-.tech-chip-6 { bottom: 6%; left: -1.25rem; }
-
-@media (max-width: 900px) {
-    .tech-chip {
-        display: none;
-    }
-}
-
-
 /* ========================================
    TECH MARQUEE (Home, below Hero)
 ======================================== */
