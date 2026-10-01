@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 1 - JavaScript Tasks</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <main class="merged-page">
+        <header class="merged-intro">
+            <h1>Day 1 — JavaScript Projects</h1>
+            <p>All three Day 1 tasks are combined into one page for easy mentor review.</p>
+        </header>
+
+        <section class="project project-profile" aria-labelledby="task1-title">
+            <main class="page">
+                <section class="card">
+                    <div class="header">
+                        <div>
+                            <span class="eyebrow">DAY 1 • TASK 1</span>
+                            <h2 id="task1-title">Introduce Yourself</h2>
+                            <p>Basic JavaScript variables, template literals and data types.</p>
+                        </div>
+
+                        <div class="badge">JS</div>
+                    </div>
+
+                    <div class="content">
+                        <div class="form-grid">
+
+                            <label>Name
+                                <input id="name" type="text" placeholder="Enter your name">
+                            </label>
+
+
+                            <label>Age
+                                <input id="age" type="number" placeholder="Enter your age">
+                            </label>
+
+
+                            <label>City
+                                <input id="city" type="text" placeholder="Enter your city">
+                            </label>
+
+
+                            <label>Skill
+                                <input id="skill" type="text" placeholder="Enter your skill">
+                            </label>
+
+
+                            <label class="full">Student
+                                <select id="isStudent">
+                                    <option value="" selected disabled>Select Yes or No</option>
+                                    <option value="true">Yes</option>
+                                    <option value="false">No</option>
+                                </select>
+                            </label>
+
+                        </div>
+
+
+                        <button id="generateBtn">Generate Introduction</button>
+
+                        <div class="output">
+                            <span>INTRODUCTION</span>
+                            <p id="outputText">Your introduction will appear here.</p>
+                        </div>
+
+                    </div>
+                    <footer>Open DevTools → Console to see the template literal and typeof results.</footer>
+
+                </section>
+            </main>
+        </section>
+
+        <section class="project project-shop" aria-labelledby="task2-title">
+
+            <main class="page">
+                <section class="card">
+                    <header class="header">
+                        <div>
+                            <span class="eyebrow">DAY 1 • TASK 2</span>
+                            <h2 id="task2-title">Shop Bill Calculator</h2>
+                            <p>Calculate subtotal, 5% discount, 17% GST and final total.</p>
+                        </div>
+
+                        <div class="badge">₨</div>
+                    </header>
+
+                    <section class="content">
+
+                        <div class="items">
+
+                            <div class="item">
+                                <div class="item-title">01 <span>Item One</span></div>
+
+                                <input id="item1" placeholder="Item name">
+
+                                <div class="two">
+                                    <input id="price1" type="number" placeholder="Price">
+                                    <input id="qty1" type="number" placeholder="Qty">
+                                </div>
+                            </div>
+
+
+                            <div class="item">
+                                <div class="item-title">02 <span>Item Two</span></div>
+
+                                <input id="item2" placeholder="Item name">
+
+                                <div class="two">
+                                    <input id="price2" type="number" placeholder="Price">
+                                    <input id="qty2" type="number" placeholder="Qty">
+                                </div>
+                            </div>
+
+
+                            <div class="item">
+                                <div class="item-title">03 <span>Item Three</span></div>
+
+                                <input id="item3" placeholder="Item name">
+
+                                <div class="two">
+                                    <input id="price3" type="number" placeholder="Price">
+                                    <input id="qty3" type="number" placeholder="Qty">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <button id="calculateBtn">Calculate Bill</button>
+
+
+                        <div class="summary">
+                            <div class="row">
+                                <span>Subtotal</span>
+                                <strong id="subtotal">Rs 0.00</strong>
+                            </div>
+
+                            <div class="row">
+                                <span>Discount (5%)</span>
+                                <strong id="discount">Rs 0.00</strong>
+                            </div>
+
+                            <div class="row">
+                                <span>GST (17%)</span>
+                                <strong id="gst">Rs 0.00</strong>
+                            </div>
+
+                            <div class="total">
+                                <span>Final Total</span>
+                                <strong id="finalTotal">Rs 0.00</strong>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <footer>
+                        Open DevTools → Console to see the clean template-literal bill output.
+                    </footer>
+
+                </section>
+            </main>
+
+
+
+        </section>
+
+
+
+        <section class="project project-unit" aria-labelledby="task3-title">
+
+            <main class="container">
+
+                <!-- Header -->
+                <header class="header">
+                    <div class="header-content">
+                        <span class="eyebrow">DAY 1 • TASK 3</span>
+
+                        <h2 id="task3-title">Converters & String Utilities</h2>
+
+                        <p>Simple JavaScript tools for conversion and string processing.</p>
+                    </div>
+
+                    <div class="badge">JS</div>
+                </header>
+
+
+                <!-- Tools -->
+                <section class="tools">
+                    <!-- Temperature Converter -->
+                    <div class="card">
+                        <h3>Temperature Converter</h3>
+
+                        <p class="description">Convert Celsius temperature into Fahrenheit.</p>
+
+
+                        <div class="input-group">
+                            <label for="celsius">Celsius</label>
+                            <input type="number" id="celsius" placeholder="Enter Celsius">
+                        </div>
+
+
+                        <button id="convertBtn">Convert</button>
+
+
+                        <div class="result">
+                            <span>Result</span>
+                            <strong id="fahrenheitResult">-- °F</strong>
+                        </div>
+
+                    </div>
+
+
+                    <!-- String Utilities -->
+                    <div class="card">
+
+                        <h3>String Utilities</h3>
+
+                        <p class="description">Clean and check an email address.</p>
+
+
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" placeholder="Enter email">
+                        </div>
+
+
+                        <button id="processEmailBtn">Process Email</button>
+
+
+                        <div class="string-results">
+
+                            <div class="result-row">
+                                <span>Clean Email</span>
+                                <strong id="cleanEmail">--</strong>
+                            </div>
+
+
+                            <div class="result-row">
+                                <span>Contains @</span>
+                                <strong id="containsAt">--</strong>
+                            </div>
+
+
+                            <div class="result-row">
+                                <span>Ends with .com</span>
+                                <strong id="endsWithCom">--</strong>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Square Calculator -->
+                    <div class="card">
+                        <h3>Square Calculator</h3>
+                        <p class="description">Enter a number and calculate its square.</p>
+
+                        <div class="input-group">
+                            <label for="number">Number</label>
+                            <input type="number" id="number" placeholder="Enter a number">
+                        </div>
+
+                        <button id="squareBtn">Calculate Square</button>
+
+                        <div class="result">
+                            <span>Square</span>
+                            <strong id="squareResult">--</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <footer>
+                    Open DevTools → Console to see the conversion and string utility results.
+                </footer>
+
+            </main>
+        </section>
+    </main>
+</body>
+
+</html>
