@@ -46,12 +46,16 @@ function getGrade(marks) {
 }
 
 $("marksFields").innerHTML = SUBJECTS.map((s, i) =>
-  `<label class="field">${s}<input type="number" id="m${i}" min="0" max="100" placeholder="0-100" value="${[78, 85, 64, 91, 29][i]}"></label>`
+  `<label class="field">${s}<input type="number" id="m${i}" min="0" max="100" placeholder="0-100"></label>`
 ).join("");
 
 function runGrade(log) {
   const out = $("gradeOut");
   const inputs = SUBJECTS.map((_, i) => $("m" + i));
+  if (inputs.every((inp) => inp.value.trim() === "")) {
+    out.innerHTML = log ? `<p class="err">Enter marks for all 5 subjects.</p>` : "";
+    return;
+  }
   let valid = true;
   const marks = inputs.map((inp) => {
     const v = inp.value.trim() === "" ? NaN : Number(inp.value);
@@ -61,7 +65,8 @@ function runGrade(log) {
     return v;
   });
   if (!valid) {
-    out.innerHTML = `<p class="err">Enter marks between 0 and 100 for all 5 subjects.</p>`;
+    const missing = inputs.some((inp) => inp.value.trim() === "");
+    out.innerHTML = missing && !log ? `<p class="empty">Fill in all 5 subjects to see the result.</p>` : `<p class="err">Enter marks between 0 and 100 for all 5 subjects.</p>`;
     return;
   }
   const name = $("studentName").value.trim() || "Student";
@@ -138,15 +143,24 @@ function isPalindrome(text) {
 const intIn = (id, min, max) => {
   const el = $(id), v = Number(el.value);
   const ok = el.value.trim() !== "" && Number.isInteger(v) && v >= min && v <= (max ?? Infinity);
-  el.classList.toggle("bad", !ok);
+  el.classList.toggle("bad", !ok && el.value.trim() !== "");
   return ok ? v : null;
+};
+// If a required field is empty: clear the output (live typing) or ask for input (on submit).
+const blank = (id, box, log, msg) => {
+  if ($(id).value.trim() !== "") return false;
+  $(id).classList.remove("bad");
+  $(box).innerHTML = log ? `<p class="err">${msg}</p>` : "";
+  return true;
 };
 const errMsg = (box, text) => { $(box).innerHTML = `<p class="err">${text}</p>`; };
 
 // Multiplication table
 bind("tableForm", (log) => {
-  const n = Number($("tableNum").value), upto = intIn("tableUpto", 1, 100);
-  if ($("tableNum").value.trim() === "" || !Number.isFinite(n)) return errMsg("tableOut", "Enter a number.");
+  if (blank("tableNum", "tableOut", log, "Enter a number.")) return;
+  const n = Number($("tableNum").value);
+  const upto = $("tableUpto").value.trim() === "" ? 10 : intIn("tableUpto", 1, 100);
+  if (!Number.isFinite(n)) return errMsg("tableOut", "Enter a valid number.");
   if (upto === null) return errMsg("tableOut", "“Up to” must be a whole number from 1 to 100.");
   const rows = multiplicationTable(n, upto);
   $("tableOut").innerHTML = `<table><tbody>${rows.map((r) => `<tr><td>${r.n} × ${r.i}</td><td class="num"><b>${r.product}</b></td></tr>`).join("")}</tbody></table>`;
@@ -157,6 +171,7 @@ bind("tableForm", (log) => {
 
 // Even numbers
 bind("evenForm", (log) => {
+  if (blank("evenLimit", "evenOut", log, "Enter a number.")) return;
   const limit = intIn("evenLimit", 1, 1000);
   if (limit === null) return errMsg("evenOut", "Enter a whole number from 1 to 1000.");
   const list = evenNumbers(limit);
@@ -166,6 +181,7 @@ bind("evenForm", (log) => {
 
 // Sum
 bind("sumForm", (log) => {
+  if (blank("sumLimit", "sumOut", log, "Enter a number.")) return;
   const limit = intIn("sumLimit", 1, 100000);
   if (limit === null) return errMsg("sumOut", "Enter a whole number from 1 to 100000.");
   const sum = sumTo(limit);
@@ -175,6 +191,7 @@ bind("sumForm", (log) => {
 
 // FizzBuzz
 bind("fizzForm", (log) => {
+  if (blank("fizzLimit", "fizzOut", log, "Enter a number.")) return;
   const limit = intIn("fizzLimit", 1, 200);
   if (limit === null) return errMsg("fizzOut", "Enter a whole number from 1 to 200.");
   const list = fizzBuzz(limit);
@@ -184,8 +201,8 @@ bind("fizzForm", (log) => {
 
 // Palindrome
 bind("palForm", (log) => {
+  if (blank("palText", "palOut", log, "Type a word or phrase.")) return;
   const text = $("palText").value.trim();
-  if (!text) return errMsg("palOut", "Type a word or phrase.");
   const yes = isPalindrome(text);
   $("palOut").innerHTML = `<p class="verdict ${yes ? "pass" : "fail"}">“${esc(text)}” is ${yes ? "" : "not "}a palindrome.</p>`;
   if (log) logGroup("Task 2 – Palindrome checker", () => console.log(`"${text}" ->`, yes ? "Palindrome" : "Not a palindrome"));
@@ -218,6 +235,7 @@ function billTable(bill) {
 }
 
 bind("billForm", (log) => {
+  if (blank("units", "billOut", log, "Enter units consumed.")) return;
   const out = $("billOut"), el = $("units"), v = Number(el.value);
   const ok = el.value.trim() !== "" && Number.isFinite(v) && v >= 0;
   el.classList.toggle("bad", !ok);
