@@ -15,8 +15,8 @@
   <header class="top">
     <div class="wrap">
       <h1>Day 2 Practice Dashboard</h1>
-      <p>Grade calculator, number games and electricity bill. Enter data below; results update live here and in the
-        browser console (F12).</p>
+      <p>Grade calculator, number games and electricity bill. Enter data below and press the relevant button to see
+        results here and in the browser console (F12).</p>
     </div>
   </header>
 
@@ -40,6 +40,7 @@
         <button class="btn" type="submit">Calculate result</button>
       </form>
       <div id="gradeOut" class="card out" aria-live="polite"></div>
+      <footer class="panel-footer">Open DevTools → Console to see the grade calculation and subject results.</footer>
     </section>
 
     <!-- TASK 2 -->
@@ -48,8 +49,9 @@
         <form id="tableForm" class="card" autocomplete="off">
           <h2>Multiplication table</h2>
           <div class="row">
-            <label class="field">Number<input type="number" id="tableNum" value="7"></label>
-            <label class="field">Up to<input type="number" id="tableUpto" value="10" min="1" max="100"></label>
+            <label class="field">Number<input type="number" id="tableNum" placeholder="e.g. 7"></label>
+            <label class="field">Up to<input type="number" id="tableUpto" min="1" max="100"
+                placeholder="10 (default)"></label>
           </div>
           <button class="btn" type="submit">Print table</button>
           <div id="tableOut" class="out"></div>
@@ -57,32 +59,36 @@
 
         <form id="evenForm" class="card" autocomplete="off">
           <h2>Even numbers</h2>
-          <label class="field">From 1 to<input type="number" id="evenLimit" value="50" min="1" max="1000"></label>
+          <label class="field">From 1 to<input type="number" id="evenLimit" min="1" max="1000"
+              placeholder="e.g. 50"></label>
           <button class="btn" type="submit">Print evens</button>
           <div id="evenOut" class="out"></div>
         </form>
 
         <form id="sumForm" class="card" autocomplete="off">
           <h2>Sum of numbers</h2>
-          <label class="field">From 1 to<input type="number" id="sumLimit" value="100" min="1" max="100000"></label>
+          <label class="field">From 1 to<input type="number" id="sumLimit" min="1" max="100000"
+              placeholder="e.g. 100"></label>
           <button class="btn" type="submit">Find sum</button>
           <div id="sumOut" class="out"></div>
         </form>
 
         <form id="fizzForm" class="card" autocomplete="off">
           <h2>FizzBuzz</h2>
-          <label class="field">From 1 to<input type="number" id="fizzLimit" value="30" min="1" max="200"></label>
+          <label class="field">From 1 to<input type="number" id="fizzLimit" min="1" max="200"
+              placeholder="e.g. 30"></label>
           <button class="btn" type="submit">Run FizzBuzz</button>
           <div id="fizzOut" class="out"></div>
         </form>
 
         <form id="palForm" class="card wide" autocomplete="off">
           <h2>Palindrome checker</h2>
-          <label class="field">Word or phrase<input type="text" id="palText" value="madam"></label>
+          <label class="field">Word or phrase<input type="text" id="palText" placeholder="e.g. madam"></label>
           <button class="btn" type="submit">Check</button>
           <div id="palOut" class="out"></div>
         </form>
       </div>
+      <footer class="panel-footer">Open DevTools → Console to see the number-game results.</footer>
     </section>
 
     <!-- TASK 3 -->
@@ -91,7 +97,7 @@
         <h2>Units consumed</h2>
         <p class="hint">Practice rates: first 100 units Rs. 10, next 100 units Rs. 15, above that Rs. 20 per unit. Not a
           real tariff.</p>
-        <label class="field">Units<input type="number" id="units" value="150" min="0"></label>
+        <label class="field">Units<input type="number" id="units" min="0" placeholder="e.g. 150"></label>
         <div class="row">
           <button class="btn" type="submit">Calculate bill</button>
           <button class="btn ghost" type="button" id="testBtn">Test 80 / 150 / 350</button>
@@ -99,11 +105,12 @@
       </form>
       <div id="billOut" class="card out" aria-live="polite"></div>
       <div id="testOut" class="card out" hidden></div>
+      <footer class="panel-footer">Open DevTools → Console to see the electricity bill breakdown and test results.</footer>
     </section>
 
   </main>
 
-  <footer class="wrap foot">Day 2 · HTML, CSS and JavaScript · Open the console (F12) to see structured output.</footer>
+  <footer class="wrap foot">Day 2 · HTML, CSS and JavaScript.</footer>
 
   <script src="script.js"></script>
 </body>

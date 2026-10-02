@@ -5,12 +5,10 @@ const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const rs = (n) => "Rs. " + n.toLocaleString("en-PK");
 
-// Live update on typing; console output only when the form is submitted.
+// Run calculations and update results only after the form is submitted.
 function bind(formId, handler) {
   const form = $(formId);
-  form.addEventListener("input", () => handler(false));
   form.addEventListener("submit", (e) => { e.preventDefault(); handler(true); });
-  handler(false);
 }
 
 // Structured console output
