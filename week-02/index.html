@@ -1,20 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List - Week 02</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Ledger — Task Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="todoStyle.css">
+     <script src="todoScript.js" defer></script>
 </head>
 
 <body>
-    <h1>Todo List - Week 02</h1>
-    <ul>
-        <li>Task 1: Complete HTML structure</li>
-        <li>Task 2: Add CSS styling</li>
-        <li>Task 3: Implement JavaScript functionality</li>
-        <li>Task 4: Push the code to the repo</li>
-    </ul>
+    <div class="wrap">
+        <header class="top">
+            <h1>Ledger</h1>
+            <p>Manage your tasks efficiently</p>
+        </header>
+
+        <div class="addbar">
+            <input type="text" id="quickTitle" placeholder="Add a task…" aria-label="New task title">
+            <button class="btn btn-primary" id="quickAddBtn">Add</button>
+        </div>
+
+        <nav class="tabs" role="tablist" aria-label="Task views">
+            <button class="tab active" data-view="active" role="tab" aria-selected="true">Active <span class="count"
+                    id="cnt-active"></span></button>
+            <button class="tab" data-view="completed" role="tab" aria-selected="false">Completed <span class="count"
+                    id="cnt-completed"></span></button>
+            <button class="tab" data-view="archived" role="tab" aria-selected="false">Archived <span class="count"
+                    id="cnt-archived"></span></button>
+        </nav>
+
+        <div class="list" id="list"></div>
+    </div>
+
+    <!-- Add/Edit modal -->
+    <div class="overlay" id="formOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+            <h2 id="formTitle">Add task</h2>
+            <form id="taskForm" novalidate>
+                <div class="field">
+                    <label for="f-title">Task</label>
+                    <input type="text" id="f-title" maxlength="200">
+                    <div class="field-err" id="err-title">Enter a task title.</div>
+                </div>
+                <div class="row2">
+                    <div class="field">
+                        <label for="f-date">Deadline date</label>
+                        <input type="date" id="f-date">
+                    </div>
+                    <div class="field">
+                        <label for="f-time">Deadline time</label>
+                        <input type="time" id="f-time">
+                    </div>
+                </div>
+                <div class="field-err" id="err-deadline">Enter a valid date and time.</div>
+
+                <div class="checkline">
+                    <input type="checkbox" id="f-remind">
+                    <label for="f-remind">Remind me</label>
+                </div>
+                <div class="sub" id="remindSub">
+                    <div class="field select-field">
+                        <label for="f-timing">Reminder</label>
+                        <select id="f-timing">
+                            <option value="15m">15 minutes before</option>
+                            <option value="30m">30 minutes before</option>
+                            <option value="1h" selected>1 hour before</option>
+                            <option value="2h">2 hours before</option>
+                            <option value="1d">1 day before</option>
+                        </select>
+                    </div>
+                    <div class="checkline">
+                        <input type="checkbox" id="f-method-email">
+                        <label for="f-method-email">Email</label>
+                    </div>
+                    <div class="field" id="emailField" style="display:none;">
+                        <input type="email" id="f-email" placeholder="example@email.com">
+                    </div>
+                    <div class="checkline">
+                        <input type="checkbox" id="f-method-whatsapp">
+                        <label for="f-method-whatsapp">WhatsApp</label>
+                    </div>
+                    <div class="field" id="waField" style="display:none;">
+                        <input type="tel" id="f-whatsapp" placeholder="+92 300 1234567">
+                    </div>
+                    <div class="field-err" id="err-remind">A deadline is required to set a reminder.</div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-ghost" id="formCancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="formSubmit">Add task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete confirm modal -->
+    <div class="overlay" id="deleteOverlay">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="delTitle">
+            <h2 id="delTitle">Delete task?</h2>
+            <p class="confirm-text">Are you sure you want to permanently delete this task? This can't be undone.</p>
+            <div class="modal-actions">
+                <button class="btn btn-ghost" id="delCancel">Cancel</button>
+                <button class="btn btn-primary" style="background:var(--danger); color:#fff;"
+                    id="delConfirm">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-wrap">
+        <div class="toast" id="toast"></div>
+    </div>
 </body>
 
 </html>
