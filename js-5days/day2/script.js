@@ -11,6 +11,53 @@ function bind(formId, handler) {
   form.addEventListener("submit", (e) => { e.preventDefault(); handler(true); });
 }
 
+const activeOutputAnimations = new WeakMap();
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function animateOutput(output) {
+  activeOutputAnimations.get(output)?.cancel();
+  if (reduceMotion) return;
+
+  const animationOptions = { duration: 360, easing: "ease-out" };
+  if (output.id === "gradeOut") {
+    const animation = output.animate(
+      [{ opacity: 0.65, transform: "translateY(6px)" }, { opacity: 1, transform: "translateY(0)" }],
+      animationOptions
+    );
+    activeOutputAnimations.set(output, animation);
+    animation.onfinish = () => activeOutputAnimations.delete(output);
+    return;
+  }
+
+  const height = output.getBoundingClientRect().height;
+  output.style.height = "0px";
+  output.style.overflow = "hidden";
+
+  const animation = output.animate(
+    [{ height: "0px", opacity: 0 }, { height: `${height}px`, opacity: 1 }],
+    animationOptions
+  );
+  activeOutputAnimations.set(output, animation);
+  animation.onfinish = () => {
+    if (activeOutputAnimations.get(output) !== animation) return;
+    output.style.height = "auto";
+    output.style.overflow = "";
+    activeOutputAnimations.delete(output);
+    animation.cancel();
+  };
+}
+
+const outputObserver = new MutationObserver((mutations) => {
+  for (const { target } of mutations) {
+    if (target instanceof HTMLElement && target.matches(".out") && target.childElementCount > 0) {
+      animateOutput(target);
+    }
+  }
+});
+document.querySelectorAll(".out").forEach((output) => {
+  outputObserver.observe(output, { childList: true });
+});
+
 // Structured console output
 function logGroup(title, fn) {
   console.group("%c" + title, "color:#0f766e;font-weight:bold");
@@ -144,7 +191,7 @@ const intIn = (id, min, max) => {
   el.classList.toggle("bad", !ok && el.value.trim() !== "");
   return ok ? v : null;
 };
-// If a required field is empty: clear the output (live typing) or ask for input (on submit).
+// If a required field is empty, ask for input on submit.
 const blank = (id, box, log, msg) => {
   if ($(id).value.trim() !== "") return false;
   $(id).classList.remove("bad");

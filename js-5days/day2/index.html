@@ -39,7 +39,9 @@
         <div id="marksFields" class="grid-5"></div>
         <button class="btn" type="submit">Calculate result</button>
       </form>
-      <div id="gradeOut" class="card out" aria-live="polite"></div>
+      <div id="gradeOut" class="card out" aria-live="polite">
+        <p class="empty result-placeholder">Your result will appear here after you calculate.</p>
+      </div>
       <footer class="panel-footer">Open DevTools → Console to see the grade calculation and subject results.</footer>
     </section>
 
@@ -88,7 +90,7 @@
           <div id="palOut" class="out"></div>
         </form>
       </div>
-      <footer class="panel-footer">Open DevTools → Console to see the number-game results.</footer>
+      <footer class="panel-footer" style="padding-bottom: 4rem;">Open DevTools → Console to see the number-game results.</footer>
     </section>
 
     <!-- TASK 3 -->
@@ -105,12 +107,11 @@
       </form>
       <div id="billOut" class="card out" aria-live="polite"></div>
       <div id="testOut" class="card out" hidden></div>
-      <footer class="panel-footer">Open DevTools → Console to see the electricity bill breakdown and test results.</footer>
+      <footer class="panel-footer">Open DevTools → Console to see the electricity bill breakdown and test results.
+      </footer>
     </section>
 
   </main>
-
-  <footer class="wrap foot">Day 2 · HTML, CSS and JavaScript.</footer>
 
   <script src="script.js"></script>
 </body>

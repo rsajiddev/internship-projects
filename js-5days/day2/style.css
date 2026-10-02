@@ -214,6 +214,10 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.result-placeholder {
+  padding: 4px 0;
+}
+
 .out:empty {
   display: none;
 }
