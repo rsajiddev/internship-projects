@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Day 3 – JavaScript Tasks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="bar">
+        <div class="bar-in">
+            <strong class="who">Raza - Ullah Sajid</strong>
+            <span class="intern-id">INT-TSG-2026-027</span>
+        </div>
+    </header>
+
+    <div class="intro">
+        <h1>Day 3 — JavaScript Projects</h1>
+        <p>All three Day 3 tasks are combined into one page for easy mentor review.</p>
+    </div>
+
+    <main class="page">
+
+        <!-- TASK 1 -->
+        <section class="task">
+            <div class="task-head">
+                <div>
+                    <span class="eyebrow">DAY 3 • TASK 1</span>
+                    <h2>Product Catalog</h2>
+                    <p>Array methods: map, filter, reduce and a non-mutating sort.</p>
+                </div>
+                <div class="badge">JS</div>
+            </div>
+            <div class="task-body">
+                <form id="prodForm" autocomplete="off" novalidate>
+                    <div class="grid">
+                        <label>Product name<input type="text" id="pName" placeholder="Enter product name"></label>
+                        <label>Price (Rs.)<input type="number" id="pPrice" min="0" placeholder="Enter price"></label>
+                        <label>Category<input type="text" id="pCat" placeholder="Enter category"></label>
+                        <label>In stock
+                            <select id="pStock">
+                                <option value="">Select Yes or No</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button class="btn" type="submit">Add product</button>
+                    <div class="btn-row">
+                        <button class="btn alt" type="button" id="prodSample">Load sample data</button>
+                        <button class="btn alt" type="button" id="prodClear">Clear all</button>
+                    </div>
+                </form>
+                <div class="result"><span class="label">Catalog &amp; analysis</span>
+                    <div id="prodOut">
+                        <p class="muted">Add at least 8 products to see the analysis.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="task-foot">Open DevTools → Console to see console.table output for each array method.</div>
+        </section>
+
+        <!-- TASK 2 -->
+        <section class="task">
+            <div class="task-head">
+                <div>
+                    <span class="eyebrow">DAY 3 • TASK 2</span>
+                    <h2>Student Record Manager</h2>
+                    <p>addStudent, findStudentById, getAverage, getTopper and getPassedStudents.</p>
+                </div>
+                <div class="badge">JS</div>
+            </div>
+            <div class="task-body">
+                <form id="stuForm" autocomplete="off" novalidate>
+                    <div class="grid">
+                        <label>Student ID<input type="text" id="sId" placeholder="Enter student ID"></label>
+                        <label>Name<input type="text" id="sName" placeholder="Enter student name"></label>
+                        <label class="full">Marks (comma separated)<input type="text" id="sMarks"
+                                placeholder="e.g. 70, 85, 90"></label>
+                    </div>
+                    <button class="btn" type="submit">Add student</button>
+                    <div class="btn-row">
+                        <button class="btn alt" type="button" id="stuSample">Load sample data</button>
+                        <button class="btn alt" type="button" id="stuClear">Clear all</button>
+                    </div>
+                </form>
+                <div class="result"><span class="label">Find student by ID</span>
+                    <input type="text" id="findId" placeholder="Enter student ID to search">
+                    <div id="findOut"></div>
+                </div>
+                <div class="result"><span class="label">Records</span>
+                    <div id="stuOut">
+                        <p class="muted">No students added yet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="task-foot">Pass rule: average of 40 or more. Console shows students, topper and passed students
+                as tables.</div>
+        </section>
+
+        <!-- TASK 3 -->
+        <section class="task">
+            <div class="task-head">
+                <div>
+                    <span class="eyebrow">DAY 3 • TASK 3</span>
+                    <h2>Sentence Analyzer</h2>
+                    <p>Word count, longest word, capitalized words, reversed words and frequency.</p>
+                </div>
+                <div class="badge">JS</div>
+            </div>
+            <div class="task-body">
+                <form id="senForm" autocomplete="off">
+                    <label>Sentence<textarea id="sentence" rows="3"
+                            placeholder="Type or paste a sentence"></textarea></label>
+                    <button class="btn" type="submit">Analyze sentence</button>
+                </form>
+                <div class="result"><span class="label">Analysis</span>
+                    <div id="senOut">
+                        <p class="muted">Your analysis will appear here.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="task-foot">Results update as you type. Press the button to also print them in the console.</div>
+        </section>
+
+    </main>
+
+    <footer class="foot">Raza - Ullah Sajid · INT-TSG-2026-027 · Day 3</footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
