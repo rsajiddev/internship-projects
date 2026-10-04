@@ -261,7 +261,13 @@
 }
 
 .dash-toolbar select {
-    min-width: 140px
+    min-width: 140px;
+    padding-right: 38px;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+    background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+    background-size: 5px 5px;
+    background-repeat: no-repeat
 }
 
 .dash-bottom-nav,

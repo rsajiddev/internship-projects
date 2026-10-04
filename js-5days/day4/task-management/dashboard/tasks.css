@@ -171,6 +171,14 @@
     color: var(--text)
 }
 
+#taskDeadline {
+    color-scheme: light
+}
+
+[data-theme=dark] #taskDeadline {
+    color-scheme: dark
+}
+
 #taskDialog textarea {
     resize: vertical
 }
