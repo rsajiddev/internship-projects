@@ -349,6 +349,10 @@ h2 {
     font-size: clamp(28px, 3vw, 34px)
 }
 
+.login-intro .eyebrow {
+    color: var(--text-muted)
+}
+
 .login-intro>p:last-child {
     margin-bottom: 30px;
     color: var(--text-muted)
@@ -1039,6 +1043,103 @@ h2 {
     }
 }
 
+/* Final info-card treatment after the responsive layout rules. */
+.photo-frame .preview-card,
+.photo-frame .week-strip {
+    border: 1px solid color-mix(in srgb, #fff 62%, transparent);
+    background: color-mix(in srgb, #fff 25%, transparent);
+    color: #fff;
+    box-shadow: 0 14px 30px #1118272b, inset 0 1px 0 #ffffff55;
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+    backdrop-filter: blur(16px) saturate(125%)
+}
+
+.photo-frame .preview-card strong,
+.photo-frame .preview-card>span:not(.preview-status-dot):not(.preview-avatars),
+.photo-frame .week-day,
+.photo-frame .week-day strong {
+    color: #fff
+}
+
+.photo-frame .preview-status-dot {
+    background: var(--primary)
+}
+
+.photo-frame .week-day.is-today {
+    background: color-mix(in srgb, var(--primary) 72%, transparent);
+    color: #fff
+}
+
+.photo-frame .week-day.is-today strong {
+    color: #fff
+}
+
+@media(max-width:639px) {
+    .photo-frame .week-strip {
+        right: 8%;
+        bottom: 36%;
+        left: auto;
+        width: 55%
+    }
+
+    .photo-frame .preview-card-b {
+        right: 8%;
+        bottom: 4%;
+        left: auto;
+        width: 58%
+    }
+}
+
+/* Glass treatment for the floating image information cards. */
+.preview-card,
+.week-strip {
+    border: 1px solid color-mix(in srgb, #fff 62%, transparent);
+    background: color-mix(in srgb, #fff 25%, transparent);
+    color: #fff;
+    box-shadow: 0 14px 30px #1118272b, inset 0 1px 0 #ffffff55;
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+    backdrop-filter: blur(16px) saturate(125%)
+}
+
+.preview-card strong,
+.week-day strong {
+    color: #fff
+}
+
+.preview-card>span:not(.preview-status-dot):not(.preview-avatars),
+.week-day {
+    color: #f4f6ff
+}
+
+.preview-status-dot {
+    background: var(--primary)
+}
+
+.week-day.is-today {
+    background: color-mix(in srgb, var(--primary) 72%, transparent);
+    color: #fff
+}
+
+.week-day.is-today strong {
+    color: #fff
+}
+
+@media(max-width:639px) {
+    .week-strip {
+        right: 4%;
+        bottom: 32%;
+        left: 4%;
+        width: auto
+    }
+
+    .preview-card-b {
+        right: 4%;
+        bottom: 4%;
+        left: 4%;
+        width: auto
+    }
+}
+
 @media(prefers-reduced-motion:reduce) {
 
     *,
@@ -1052,6 +1153,279 @@ h2 {
 
     .shape {
         display: none
+    }
+}
+
+/* Login reference polish: keep the existing content and behavior while matching
+   the two-panel desktop composition and the bounded mobile image treatment. */
+@media(min-width:1024px) {
+    body:has(.view-login) {
+        background: var(--bg)
+    }
+
+    .app-shell:has(.view-login) {
+        padding: clamp(16px, 2.4vw, 32px)
+    }
+
+    .view-login {
+        width: min(100%, 1320px);
+        height: min(820px, calc(100dvh - 2 * clamp(16px, 2.4vw, 32px)));
+        min-height: min(680px, calc(100dvh - 2 * clamp(16px, 2.4vw, 32px)));
+        grid-template-columns: minmax(420px, .86fr) minmax(0, 1.14fr);
+        gap: 0;
+        padding: 0;
+        border-radius: 30px;
+        overflow: hidden
+    }
+
+    .login-main {
+        grid-column: 1;
+        grid-row: 1;
+        align-items: center;
+        padding: clamp(42px, 5vw, 78px) clamp(34px, 5.2vw, 86px);
+        background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 92%, var(--primary)) 62%, color-mix(in srgb, var(--surface) 82%, var(--primary)) 100%)
+    }
+
+    .login-card {
+        width: min(100%, 430px)
+    }
+
+    .login-intro h1 {
+        font-size: clamp(30px, 2.55vw, 38px)
+    }
+
+    .brand-panel {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        height: 100%;
+        align-items: stretch
+    }
+
+    .photo-frame {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        aspect-ratio: auto;
+        border-radius: 0;
+    }
+
+    .hero-photo {
+        object-position: 67% center
+    }
+
+    .hero-scrim {
+        background: linear-gradient(180deg, #11182730 0%, transparent 35%, #11182748 100%)
+    }
+
+    .preview-card-a {
+        top: 5%;
+        left: 6%;
+    }
+
+    .week-strip {
+        left: auto;
+        right: 6%;
+        bottom: 20%;
+    }
+
+    .preview-card-b {
+        bottom: 5%;
+        left: 6%;
+    }
+}
+
+@media(max-width:1023px) {
+    .photo-frame,
+    .hero-photo,
+    .hero-scrim {
+        max-width: 100%
+    }
+
+    .hero-photo {
+        object-fit: cover
+    }
+
+    .login-main {
+        background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 92%, var(--primary)) 100%)
+    }
+}
+
+@media(max-width:639px) {
+    .brand-panel {
+        height: clamp(248px, 38dvh, 340px);
+        min-height: 248px
+    }
+
+    .photo-frame {
+        width: 100%;
+        height: 100%;
+        border-radius: 22px
+    }
+
+    .hero-photo {
+        object-position: 64% center
+    }
+
+    .login-main {
+        width: calc(100% - 8px);
+        margin-top: -16px;
+        padding: 26px 20px 22px;
+        background: linear-gradient(145deg, var(--surface) 0%, color-mix(in srgb, var(--surface) 90%, var(--primary)) 100%)
+    }
+
+    .field-group input {
+        height: 50px
+    }
+
+    .primary-button {
+        min-height: 52px
+    }
+}
+
+/* Mobile uses one continuous white shell for the image and form. */
+@media(max-width:1023px) {
+    .login-main {
+        background: var(--surface)
+    }
+}
+
+@media(min-width:1024px) {
+    .login-main {
+        background: var(--surface)
+    }
+}
+
+@media(max-width:639px) {
+    .view-login {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--surface);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg)
+    }
+
+    .brand-panel {
+        height: clamp(248px, 38dvh, 340px);
+        min-height: 248px
+    }
+
+    .photo-frame {
+        border-radius: 0
+    }
+
+    .login-main {
+        width: 100%;
+        margin: 0;
+        padding: 26px 20px 22px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none
+    }
+
+    .app-shell:has(.view-login) {
+        display: grid;
+        min-height: 100vh;
+        min-height: 100dvh;
+        place-items: center;
+    }
+}
+
+/* Compact floating cards across all mobile/tablet-sized login previews. */
+@media(max-width:1023px) {
+    .photo-frame .week-strip {
+        top: auto;
+        right: 8%;
+        bottom: 34%;
+        left: auto;
+        width: 55%;
+        padding: 6px;
+    }
+
+    .photo-frame .preview-card-b {
+        right: 8%;
+        bottom: 5%;
+        left: auto;
+        width: 52%;
+        padding: 8px 10px;
+        border-radius: 12px;
+    }
+
+    .photo-frame .preview-card-b strong {
+        font-size: 11px;
+    }
+
+    .photo-frame .preview-card-b .preview-avatars i {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media(max-width:639px) {
+    .photo-frame .week-strip {
+        right: 8%;
+        bottom: 36%;
+        width: 55%;
+    }
+
+    .photo-frame .preview-card-b {
+        right: 8%;
+        bottom: 4%;
+        width: 58%;
+    }
+}
+
+/* Final info-card treatment after the responsive layout rules. */
+.photo-frame .preview-card,
+.photo-frame .week-strip {
+    border: 1px solid color-mix(in srgb, #fff 62%, transparent);
+    background: color-mix(in srgb, #fff 25%, transparent);
+    color: #fff;
+    box-shadow: 0 14px 30px #1118272b, inset 0 1px 0 #ffffff55;
+    -webkit-backdrop-filter: blur(16px) saturate(125%);
+    backdrop-filter: blur(16px) saturate(125%)
+}
+
+.photo-frame .preview-card strong,
+.photo-frame .preview-card>span:not(.preview-status-dot):not(.preview-avatars),
+.photo-frame .week-day,
+.photo-frame .week-day strong {
+    color: #fff
+}
+
+.photo-frame .preview-status-dot {
+    background: var(--primary)
+}
+
+.photo-frame .week-day.is-today {
+    background: color-mix(in srgb, var(--primary) 72%, transparent);
+    color: #fff
+}
+
+.photo-frame .week-day.is-today strong {
+    color: #fff
+}
+
+@media(max-width:639px) {
+    .photo-frame .week-strip {
+        right: 8%;
+        bottom: 36%;
+        left: auto;
+        width: 55%
+    }
+
+    .photo-frame .preview-card-b {
+        right: 8%;
+        bottom: 4%;
+        left: auto;
+        width: 58%
+    }
+}
+
+@media(max-width:639px) and (max-height:700px) {
+    .app-shell:has(.view-login) {
+        align-items: start;
     }
 }
 
@@ -1104,4 +1478,975 @@ h2 {
 .icon-button::before,
 .password-toggle::before {
     display: none
+}
+
+body:has(.view-login) {
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden
+}
+
+.app-shell:has(.view-login) {
+    display: grid;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: calc(clamp(12px, 2vw, 28px) + env(safe-area-inset-top)) calc(clamp(12px, 2vw, 28px) + env(safe-area-inset-right)) calc(clamp(12px, 2vw, 28px) + env(safe-area-inset-bottom)) calc(clamp(12px, 2vw, 28px) + env(safe-area-inset-left));
+    place-items: center
+}
+
+.view-login {
+    --shell-gap: 14px;
+    display: grid;
+    grid-template-columns: minmax(0, .94fr) minmax(0, 1.06fr);
+    gap: var(--shell-gap);
+    width: min(100%, 1280px);
+    height: min(760px, calc(100dvh - 2 * clamp(12px, 2vw, 28px)));
+    min-width: 0;
+    min-height: min(760px, calc(100dvh - 2 * clamp(12px, 2vw, 28px)));
+    margin: auto;
+    padding: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: var(--surface);
+    box-shadow: var(--shadow-lg)
+}
+
+.brand-panel {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    align-items: center;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    overflow: visible;
+    background: transparent;
+    color: var(--text)
+}
+
+.photo-frame {
+    position: relative;
+    isolation: isolate;
+    container-type: inline-size;
+    width: 100%;
+    height: auto;
+    aspect-ratio: .85;
+    max-height: calc(100% - 24px);
+    min-width: 0;
+    min-height: 0;
+    align-self: center;
+    overflow: hidden;
+    border-radius: 22px;
+    background: linear-gradient(145deg, color-mix(in srgb, var(--primary) 78%, var(--bg)), color-mix(in srgb, var(--primary) 45%, var(--text)))
+}
+
+.hero-photo,
+.hero-scrim {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%
+}
+
+.hero-photo {
+    z-index: -2;
+    display: block;
+    object-fit: cover;
+    object-position: 88% center
+}
+
+.hero-scrim {
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, #11182742 0%, transparent 26%, transparent 48%, #1118276b 100%)
+}
+
+.photo-frame[data-image-failed=true] .hero-photo {
+    opacity: 0
+}
+
+.photo-frame[data-image-failed=true] .hero-scrim {
+    background: linear-gradient(180deg, #11182742, #11182720 48%, #11182750)
+}
+
+.hero-mobile-topline,
+.hero-copy {
+    display: none
+}
+
+.preview-card,
+.week-strip {
+    position: absolute;
+    z-index: 1;
+    min-width: 0;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    color: var(--text);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(14px)
+}
+
+.preview-card,
+.week-strip,
+.avatar-cluster {
+    pointer-events: none
+}
+
+.preview-card {
+    display: grid;
+    grid-template-columns: 8px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 9px;
+    row-gap: 3px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    font-size: 11px
+}
+
+.preview-card strong,
+.preview-card>span:not(.preview-status-dot):not(.preview-avatars) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.preview-card strong {
+    font-size: 12px
+}
+
+.preview-card>span:not(.preview-status-dot):not(.preview-avatars) {
+    grid-column: 2;
+    color: var(--text-muted)
+}
+
+.preview-status-dot {
+    grid-column: 1;
+    grid-row: 1;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success)
+}
+
+.preview-card-a {
+    top: 5%;
+    left: 5%;
+    width: clamp(170px, 19vw, 236px)
+}
+
+.week-strip {
+    left: 5%;
+    bottom: 22%;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    width: clamp(230px, 26vw, 320px);
+    padding: 7px 8px;
+    border-radius: 13px
+}
+
+.week-day {
+    display: grid;
+    justify-items: center;
+    gap: 2px;
+    min-width: 0;
+    padding: 3px 0;
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 9px;
+    line-height: 1.2
+}
+
+.week-day strong {
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 650
+}
+
+.week-day.is-today {
+    background: color-mix(in srgb, var(--primary) 15%, var(--surface));
+    color: var(--primary)
+}
+
+.week-day.is-today strong {
+    color: var(--primary)
+}
+
+.preview-card-b {
+    bottom: 2.5%;
+    left: 5%;
+    width: clamp(180px, 22vw, 260px);
+    padding: 8px 12px
+}
+
+.preview-card-b .preview-avatars i {
+    width: 22px;
+    height: 22px
+}
+
+.preview-avatars {
+    display: flex;
+    grid-column: 2;
+    margin-top: 4px
+}
+
+.preview-avatars i,
+.avatar-cluster i {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    margin-right: -7px;
+    border: 2px solid var(--surface);
+    border-radius: 50%;
+    background: var(--surface-2);
+    color: var(--text);
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 750
+}
+
+.preview-avatars i:nth-child(2),
+.avatar-cluster i:nth-child(2) {
+    background: color-mix(in srgb, var(--primary) 26%, var(--surface))
+}
+
+.preview-avatars i:nth-child(3),
+.avatar-cluster i:nth-child(3) {
+    background: color-mix(in srgb, var(--success) 22%, var(--surface))
+}
+
+.avatar-cluster {
+    position: absolute;
+    z-index: 1;
+    top: 64%;
+    right: 7%;
+    display: flex;
+    padding: 8px;
+    border: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(14px)
+}
+
+.login-main {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    min-width: 0;
+    padding: clamp(24px, 4vw, 56px) clamp(18px, 4vw, 52px);
+    place-items: center
+}
+
+.login-card {
+    width: min(100%, 420px);
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none
+}
+
+.card-topline {
+    margin-bottom: clamp(28px, 5vh, 54px)
+}
+
+.card-topline .brand {
+    min-height: 44px
+}
+
+.login-intro h1 {
+    margin-bottom: 9px;
+    font-size: clamp(29px, 3vw, 36px);
+    letter-spacing: .005em;
+    line-height: 1.18
+}
+
+.login-intro>p:last-child {
+    margin-bottom: 24px;
+    color: var(--text-muted)
+}
+
+.field-group {
+    margin-bottom: 14px
+}
+
+.field-group label {
+    margin-bottom: 6px;
+    color: var(--text);
+    font-size: 13px
+}
+
+.input-wrap,
+.password-wrap {
+    position: relative;
+    min-width: 0
+}
+
+.field-icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 16px;
+    width: 19px;
+    height: 19px;
+    transform: translateY(-50%);
+    fill: none;
+    stroke: var(--text-muted);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none
+}
+
+.field-group input {
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0 16px 0 48px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-2);
+    color: var(--text);
+    outline: none;
+    scroll-margin-block: 20px;
+    transition: border-color var(--transition), box-shadow var(--transition), background var(--transition)
+}
+
+.field-group input:focus {
+    border-color: var(--primary);
+    background: var(--surface);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary) 18%, transparent)
+}
+
+.field-group input[aria-invalid=true] {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 15%, transparent)
+}
+
+.field-group input.success {
+    border-color: var(--success)
+}
+
+.password-wrap input {
+    padding-right: 58px
+}
+
+.password-toggle {
+    top: 3px;
+    right: 3px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%
+}
+
+.field-error,
+.caps-warning {
+    min-height: 0;
+    margin-top: 3px;
+    font-size: 12px
+}
+
+.field-error:empty,
+.caps-warning:empty {
+    display: none
+}
+
+.form-row {
+    margin: 10px 0 14px
+}
+
+.checkbox-label,
+.text-button {
+    min-height: 44px
+}
+
+.text-button {
+    padding: 5px 4px
+}
+
+.primary-button {
+    min-height: 50px;
+    border-radius: 999px
+}
+
+.form-message {
+    min-height: 0;
+    margin-top: 8px
+}
+
+.form-message:empty {
+    display: none
+}
+
+.card-footer {
+    margin-top: 26px;
+    padding-top: 14px
+}
+
+.dialog-close {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    place-items: center
+}
+
+.dialog-close:hover {
+    background: var(--surface-2);
+    color: var(--text)
+}
+
+body:has(.view-login) #toastContainer .toast-close {
+    display: grid;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin-top: -9px;
+    place-items: center
+}
+
+.hero-title {
+    margin: 0 0 8px;
+    font-size: 25px;
+    font-weight: 720;
+    letter-spacing: .005em;
+    line-height: 1.18
+}
+
+.hero-copy>p:last-child {
+    max-width: 28ch;
+    margin: 0;
+    font-size: 14px
+}
+
+.hero-copy .eyebrow {
+    color: #fff;
+    text-shadow: 0 1px 8px #111827aa
+}
+
+.hero-copy>p:last-child,
+.hero-title {
+    color: #fff;
+    text-shadow: 0 1px 10px #111827c9
+}
+
+@supports (width: 1cqw) {
+    .preview-card-a {
+        width: clamp(150px, 37cqw, 236px)
+    }
+
+    .week-strip {
+        width: clamp(230px, 50cqw, 320px)
+    }
+
+    .preview-card-b {
+        width: clamp(170px, 40cqw, 260px)
+    }
+}
+
+@media(max-width:1023px) {
+    body:has(.view-login) {
+        display: block
+    }
+
+    .app-shell:has(.view-login) {
+        display: block;
+        padding: calc(12px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) calc(18px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))
+    }
+
+    .view-login {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        width: min(100%, 720px);
+        height: auto;
+        min-height: 0;
+        margin: 0 auto;
+        padding: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none
+    }
+
+    .brand-panel {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        min-height: 0;
+        aspect-ratio: 16 / 9
+    }
+
+    .photo-frame {
+        height: 100%;
+        aspect-ratio: auto;
+        max-height: none;
+        min-height: 0;
+        border-radius: 24px
+    }
+
+    .hero-photo {
+        object-position: 57% 40%
+    }
+
+    .hero-scrim {
+        background: linear-gradient(90deg, #111827a8 0%, #11182752 42%, transparent 76%), linear-gradient(180deg, #11182742, transparent 40%, #11182728)
+    }
+
+    .hero-mobile-topline {
+        position: absolute;
+        z-index: 2;
+        inset: 14px 14px auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    .hero-brand {
+        font-size: 16px;
+        text-shadow: 0 1px 8px #111827aa
+    }
+
+    .hero-brand .logo-mark {
+        width: 32px;
+        height: 32px
+    }
+
+    .hero-theme-toggle {
+        width: 44px;
+        height: 44px;
+        border-color: #ffffff80;
+        background: color-mix(in srgb, var(--surface) 90%, transparent);
+        color: var(--text)
+    }
+
+    .hero-copy {
+        position: absolute;
+        z-index: 2;
+        top: clamp(72px, 13%, 104px);
+        left: clamp(18px, 4.5%, 34px);
+        display: block;
+        max-width: min(52%, 330px);
+        color: #fff
+    }
+
+    .hero-title {
+        font-size: clamp(22px, 3.4vw, 32px)
+    }
+
+    .preview-card-a,
+    .avatar-cluster {
+        display: none
+    }
+
+    .week-strip {
+        bottom: 7%;
+        left: 4%;
+        width: 54%;
+        padding: 7px 5px
+    }
+
+    .week-day {
+        font-size: 8px
+    }
+
+    .week-day strong {
+        font-size: 10px
+    }
+
+    .preview-card-b {
+        right: 4%;
+        bottom: 7%;
+        left: auto;
+        width: 38%;
+        padding: 9px 10px;
+        font-size: 9px
+    }
+
+    .preview-card-b strong {
+        font-size: 10px
+    }
+
+    .preview-avatars i {
+        width: 22px;
+        height: 22px;
+        font-size: 7px
+    }
+
+    .login-main {
+        position: relative;
+        z-index: 3;
+        grid-column: 1;
+        grid-row: 2;
+        width: min(calc(100% - 28px), 560px);
+        min-height: 0;
+        margin: -22px auto 0;
+        padding: 28px clamp(22px, 5vw, 44px) 24px;
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        background: var(--surface);
+        box-shadow: var(--shadow-lg)
+    }
+
+    .login-card {
+        max-width: 100%
+    }
+
+    .card-topline {
+        display: none;
+        margin-bottom: 28px
+    }
+
+    .login-intro h1 {
+        font-size: clamp(28px, 4vw, 34px)
+    }
+
+    .login-intro {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap
+    }
+}
+
+@media(max-width:639px) {
+    .app-shell:has(.view-login) {
+        padding: calc(10px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(12px + env(safe-area-inset-left))
+    }
+
+    .view-login {
+        width: 100%
+    }
+
+    .brand-panel {
+        width: 100%;
+        aspect-ratio: auto;
+        height: clamp(220px, 34dvh, 320px)
+    }
+
+    .photo-frame {
+        border-radius: 22px
+    }
+
+    .hero-photo {
+        object-position: 63% 46%
+    }
+
+    .hero-scrim {
+        background: linear-gradient(90deg, #111827b8 0%, #11182765 50%, transparent 84%), linear-gradient(180deg, #11182740 0%, transparent 40%, #11182720 100%)
+    }
+
+    .photo-frame[data-image-failed=true] .hero-scrim {
+        background: linear-gradient(90deg, #11182755, #11182725)
+    }
+
+    .hero-mobile-topline {
+        inset: 12px 12px auto
+    }
+
+    .hero-copy {
+        top: 54px;
+        left: 16px;
+        max-width: min(30%, 260px)
+    }
+
+    .hero-copy .eyebrow {
+        margin-bottom: 5px;
+        font-size: 10px
+    }
+
+    .hero-title {
+        max-width: 13ch;
+        margin-bottom: 5px;
+        font-size: clamp(17px, 4.8vw, 20px)
+    }
+
+    .hero-copy>p:last-child {
+        font-size: 11px
+    }
+
+    .week-strip {
+        bottom: 2%;
+        left: 3%;
+        width: 55%;
+        padding: 5px 3px;
+        border-radius: 10px
+    }
+
+    .week-day {
+        gap: 1px;
+        padding: 3px 0;
+        font-size: 7px
+    }
+
+    .week-day strong {
+        font-size: 9px
+    }
+
+    .preview-card-b {
+        right: 3%;
+        bottom: 2%;
+        width: 39%;
+        padding: 7px 8px;
+        border-radius: 11px;
+        font-size: 8px
+    }
+
+    .preview-card-b strong {
+        font-size: 9px
+    }
+
+    .preview-status-dot {
+        width: 6px;
+        height: 6px
+    }
+
+    .preview-avatars {
+        margin-top: 1px
+    }
+
+    .preview-avatars i {
+        width: 18px;
+        height: 18px;
+        margin-right: -6px;
+        font-size: 6px
+    }
+
+    .login-main {
+        width: calc(100% - 10px);
+        min-height: 0;
+        margin-top: -14px;
+        padding: 22px 20px 20px;
+        border-radius: 22px
+    }
+
+    .card-topline {
+        display: none
+    }
+
+    .login-intro {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        clip-path: inset(50%);
+        white-space: nowrap
+    }
+
+    .field-group {
+        margin-bottom: 10px
+    }
+
+    .field-group label {
+        margin-bottom: 4px;
+        font-size: 12px
+    }
+
+    .field-group input {
+        height: 48px
+    }
+
+    .password-toggle {
+        top: 2px;
+        right: 2px;
+        width: 44px;
+        height: 44px
+    }
+
+    .form-row {
+        align-items: center;
+        margin: 7px 0 10px
+    }
+
+    .card-footer {
+        display: none
+    }
+
+    #formMessage:not(:empty) {
+        margin-top: 6px;
+        font-size: 12px
+    }
+}
+
+@media(max-width:360px),
+(max-height:599px) {
+    .preview-card-b {
+        display: none
+    }
+
+    .week-strip {
+        bottom: 1%
+    }
+}
+
+@media(max-height:500px) and (orientation:landscape) {
+    body:has(.view-login) {
+        display: block
+    }
+
+    .app-shell:has(.view-login) {
+        display: block;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: env(safe-area-inset-top) calc(12px + env(safe-area-inset-right)) env(safe-area-inset-bottom) calc(12px + env(safe-area-inset-left))
+    }
+
+    .view-login {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        width: min(100%, 560px);
+        min-height: 0;
+        margin: 0 auto;
+        padding: 0;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none
+    }
+
+    .brand-panel {
+        display: none
+    }
+
+    .login-main {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        min-height: 0;
+        margin: 0;
+        padding: 2px 20px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        box-shadow: var(--shadow-md)
+    }
+
+    .login-card {
+        max-width: 420px
+    }
+
+    .card-topline {
+        display: flex;
+        margin-bottom: 6px
+    }
+
+    .login-intro {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        clip-path: none;
+        white-space: normal
+    }
+
+    .login-intro h1 {
+        margin-bottom: 4px;
+        font-size: 25px
+    }
+
+    .login-intro>p:last-child {
+        margin-bottom: 8px;
+        font-size: 13px
+    }
+
+    .field-group {
+        margin-bottom: 5px
+    }
+
+    .field-group label {
+        margin-bottom: 3px
+    }
+
+    .field-group input {
+        height: 44px
+    }
+
+    .password-toggle {
+        top: 0;
+        right: 2px;
+        width: 42px;
+        height: 42px
+    }
+
+    .form-row {
+        margin: 4px 0 6px
+    }
+
+    .primary-button {
+        min-height: 46px
+    }
+
+    .card-footer {
+        display: none
+    }
+}
+
+@supports not (height: 100dvh) {
+    .brand-panel {
+        min-height: 600px
+    }
+
+    @media(max-width:1023px) {
+        .brand-panel {
+            min-height: 0
+        }
+    }
+
+    @media(max-width:639px) {
+        .brand-panel {
+            height: clamp(220px, 34vh, 320px)
+        }
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    .preview-card,
+    .week-strip {
+        animation: none
+    }
+}
+
+/* Final mobile shell override: keep image and form inside one white rounded card. */
+@media(max-width:639px) {
+    .view-login {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        background: var(--surface);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg)
+    }
+
+    .photo-frame {
+        border-radius: 0
+    }
+
+    .login-main {
+        width: 100%;
+        margin: 0;
+        padding: 26px 20px 22px;
+        border: 0;
+        border-radius: 0;
+        background: var(--surface);
+        box-shadow: none
+    }
+
+    .app-shell:has(.view-login) {
+        display: grid;
+        min-height: 100vh;
+        min-height: 100dvh;
+        place-items: center;
+    }
 }

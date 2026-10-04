@@ -14,6 +14,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b5ce2'/%3E%3Cpath d='M18 21h28v7H35v22h-7V28H18z' fill='white'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://lddwnsrxuwopiufeukhr.supabase.co" crossorigin>
   <link rel="stylesheet" href="shared/base.css">
   <link rel="stylesheet" href="style.css">
   <script src="shared/theme.js"></script>
@@ -26,32 +27,53 @@
   </noscript>
   <div class="app-shell">
     <section id="loginView" class="view view-login" aria-labelledby="loginHeading">
-      <aside class="brand-panel" aria-label="Tech SG introduction">
-        <div class="brand-panel-content"><a class="brand brand-on-dark" href="#login" aria-label="Tech SG home"><span
-              class="logo-mark" aria-hidden="true"><svg viewBox="0 0 40 40">
-                <rect x="1.5" y="1.5" width="37" height="37" rx="11"></rect>
-                <path d="M10 12h20v5h-7.5v12h-5V17H10z"></path>
-              </svg></span><span>Tech SG</span></a>
-          <div class="brand-copy">
-            <p class="eyebrow">Tech SG Studio</p>
-            <h2>Build. Ship. Grow.</h2>
-            <p>Thoughtful tools for teams moving the world forward.</p>
+      <aside class="brand-panel" aria-label="Tech SG workspace preview">
+        <div class="photo-frame" id="photoFrame">
+          <img class="hero-photo"
+            src="https://lddwnsrxuwopiufeukhr.supabase.co/storage/v1/object/public/Images/pexels-yankrukov-7793096.jpg"
+            alt="" width="4000" height="6000" loading="eager" fetchpriority="high" decoding="async">
+          <div class="hero-scrim" aria-hidden="true"></div>
+          <div class="hero-mobile-topline">
+            <div class="brand brand-on-dark hero-brand" aria-hidden="true">
+              <span class="logo-mark"><svg viewBox="0 0 40 40" aria-hidden="true">
+                  <rect x="1.5" y="1.5" width="37" height="37" rx="11"></rect>
+                  <path d="M10 12h20v5h-7.5v12h-5V17H10z"></path>
+                </svg></span><span>Tech SG</span>
+            </div>
+            <button class="icon-button theme-toggle hero-theme-toggle" type="button" aria-label="Switch to dark theme"
+              aria-pressed="false"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41">
+                </path>
+              </svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15.5A9 9 0 0 1 8.5 3 9 9 0 1 0 21 15.5Z"></path>
+              </svg></button>
           </div>
-          <ul class="feature-list">
-            <li><span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="m5 12 4 4L19 6" />
-                </svg></span><span>Move from idea to impact, faster.</span></li>
-            <li><span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3v18M3 12h18" />
-                </svg></span><span>Simple workflows that scale with you.</span></li>
-            <li><span class="feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7z" />
-                </svg></span><span>Built with care and security in mind.</span></li>
-          </ul>
+          <div class="hero-copy" aria-hidden="true">
+            <p class="eyebrow">Welcome back</p>
+            <p class="hero-title">Sign in to continue</p>
+            <p>Access your Tech SG workspace.</p>
+          </div>
+          <div class="preview-card preview-card-a" aria-hidden="true">
+            <span class="preview-status-dot"></span>
+            <strong>Task review with team</strong>
+            <span>09:30 - 10:00 AM</span>
+          </div>
+          <div class="week-strip" aria-hidden="true">
+            <span class="week-day" data-week-day></span><span class="week-day" data-week-day></span>
+            <span class="week-day" data-week-day></span><span class="week-day" data-week-day></span>
+            <span class="week-day" data-week-day></span><span class="week-day" data-week-day></span>
+            <span class="week-day" data-week-day></span>
+          </div>
+          <div class="preview-card preview-card-b" aria-hidden="true">
+            <span class="preview-status-dot"></span>
+            <strong>Design handoff</strong>
+            <span>Due in 1 hour</span>
+            <span class="preview-avatars"><i>AM</i><i>JL</i><i>RK</i></span>
+          </div>
+          <div class="avatar-cluster" aria-hidden="true"><i>AM</i><i>JL</i><i>RK</i></div>
         </div>
-        <div class="shape shape-one" aria-hidden="true"></div>
-        <div class="shape shape-two" aria-hidden="true"></div>
-        <div class="shape shape-three" aria-hidden="true"></div>
       </aside>
       <main class="login-main">
         <div class="login-card" id="loginCard">
@@ -75,22 +97,35 @@
             <p>Access your Tech SG workspace.</p>
           </div>
           <form id="loginForm" novalidate>
-            <div class="field-group"><label for="email">Email or username</label><input id="email" name="email"
-                type="text" autocomplete="username" autofocus inputmode="email" aria-describedby="emailError">
+            <div class="field-group"><label for="email">Email or username</label>
+              <div class="input-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="8" r="3.5"></circle>
+                  <path d="M5 20c.7-3.4 3.2-5.2 7-5.2s6.3 1.8 7 5.2"></path>
+                </svg>
+                <input id="email" name="email" type="text" autocomplete="username" autofocus inputmode="email"
+                  aria-describedby="emailError">
+              </div>
               <p class="field-error" id="emailError" role="alert"></p>
             </div>
             <div class="field-group"><label for="password">Password</label>
-              <div class="password-wrap"><input id="password" name="password" type="password"
-                  autocomplete="current-password" aria-describedby="passwordError capsWarning"><button
-                  class="password-toggle" type="button" aria-label="Show password" aria-pressed="false"><svg
-                    class="eye-show" viewBox="0 0 24 24" aria-hidden="true">
+              <div class="password-wrap">
+                <svg class="field-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="5" y="10" width="14" height="11" rx="2"></rect>
+                  <path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"></path>
+                </svg>
+                <input id="password" name="password" type="password" autocomplete="current-password"
+                  aria-describedby="passwordError capsWarning"><button class="password-toggle" type="button"
+                  aria-label="Show password" aria-pressed="false"><svg class="eye-show" viewBox="0 0 24 24"
+                    aria-hidden="true">
                     <path d="M2.5 12S6.5 5 12 5s9.5 7 9.5 7-4 7-9.5 7-9.5-7-9.5-7Z"></path>
                     <circle cx="12" cy="12" r="3"></circle>
                   </svg><svg class="eye-hide" viewBox="0 0 24 24" aria-hidden="true">
                     <path
                       d="m3 3 18 18M10.6 10.6a2 2 0 0 0 2.8 2.8M9.9 5.4A10.7 10.7 0 0 1 12 5c5.5 0 9.5 7 9.5 7a18 18 0 0 1-3.2 4.2M6.6 6.6A18 18 0 0 0 2.5 12s4 7 9.5 7c1.5 0 2.9-.5 4.1-1.2">
                     </path>
-                  </svg></button></div>
+                  </svg></button>
+              </div>
               <p class="caps-warning" id="capsWarning" aria-live="polite"></p>
               <p class="field-error" id="passwordError" role="alert"></p>
             </div>
