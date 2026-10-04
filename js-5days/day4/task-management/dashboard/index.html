@@ -45,9 +45,15 @@
                     </svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M21 15.5A9 9 0 0 1 8.5 3 9 9 0 1 0 21 15.5Z" />
                     </svg></button>
-                <div class="dash-user"><span class="dash-avatar" id="userAvatar">I</span><span
-                        id="userName">Intern</span></div><button class="secondary-button dash-logout" id="logoutButton"
+                <button class="dash-profile" id="profileButton" type="button" aria-label="Open profile menu"
+                    aria-expanded="false" aria-controls="profileMenu"><span class="dash-avatar" id="userAvatar">I</span><span
+                        id="userName">Intern</span></button><button class="secondary-button dash-logout" id="logoutButton"
                     type="button">Log out</button>
+                <div class="profile-menu" id="profileMenu" hidden>
+                    <button type="button" id="mobileNotificationButton"><span aria-hidden="true">♧</span><span>Notification</span></button>
+                    <button type="button" id="mobileThemeButton"><span aria-hidden="true">☼</span><span>Theme</span></button>
+                    <button type="button" id="mobileLogoutButton"><span aria-hidden="true">↪</span><span>Log out</span></button>
+                </div>
             </div>
         </header>
         <main class="dash-main">

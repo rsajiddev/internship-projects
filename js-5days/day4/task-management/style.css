@@ -596,10 +596,18 @@ h2 {
 }
 
 .form-message.error .message-icon::after {
-    content: "!";
-    position: absolute;
-    left: 5px;
-    top: -2px
+    display: none
+}
+
+/* Use a crisp vector warning icon instead of the text-based exclamation mark. */
+.form-message.error .message-icon {
+    width: 20px;
+    height: 20px;
+    border: 0;
+    border-radius: 0;
+    background: currentColor;
+    -webkit-mask: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9.25' fill='none' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M12 7v6' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='17' r='1.35' fill='white'/%3E%3C/svg%3E");
+    mask: center / contain no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9.25' fill='none' stroke='white' stroke-width='2.5'/%3E%3Cpath d='M12 7v6' stroke='white' stroke-width='2.5' stroke-linecap='round'/%3E%3Ccircle cx='12' cy='17' r='1.35' fill='white'/%3E%3C/svg%3E")
 }
 
 .card-footer {
@@ -1072,6 +1080,67 @@ h2 {
 
 .photo-frame .week-day.is-today strong {
     color: #fff
+}
+
+/* iPad/tablet: keep the mobile composition until the large-desktop breakpoint. */
+@media(min-width:640px) and (max-width:1199px) {
+    body:has(.view-login) {
+        overflow-x: hidden
+    }
+
+    .app-shell:has(.view-login) {
+        display: grid !important;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 24px !important;
+        place-items: center
+    }
+
+    .view-login {
+        display: block !important;
+        width: min(100%, 860px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 28px !important;
+        background: var(--surface) !important;
+        box-shadow: var(--shadow-lg) !important
+    }
+
+    .brand-panel {
+        display: block !important;
+        width: 100% !important;
+        height: clamp(300px, 46vw, 470px) !important;
+        min-height: 0 !important;
+        aspect-ratio: auto !important
+    }
+
+    .photo-frame {
+        width: 100% !important;
+        height: 100% !important;
+        max-height: none !important;
+        border-radius: 0 !important
+    }
+
+    .login-main {
+        display: grid !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 34px clamp(30px, 7vw, 72px) 30px !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: var(--surface) !important;
+        box-shadow: none !important
+    }
+
+    .login-card {
+        width: min(100%, 560px) !important;
+        margin: 0 auto
+    }
 }
 
 @media(max-width:639px) {
