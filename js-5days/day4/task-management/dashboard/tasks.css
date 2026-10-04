@@ -1,0 +1,292 @@
+.task-list {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0;
+    padding: 0;
+    list-style: none
+}
+
+.task-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm)
+}
+
+.task-check {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto
+}
+
+.task-checkbox {
+    position: absolute;
+    inset: 0;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    cursor: pointer
+}
+
+.task-checkmark {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--border);
+    border-radius: 6px
+}
+
+.task-checkbox:checked+.task-checkmark {
+    border-color: var(--primary);
+    background: var(--primary)
+}
+
+.task-checkbox:checked+.task-checkmark::after {
+    content: '✓';
+    display: block;
+    color: var(--primary-contrast);
+    font-size: 14px;
+    text-align: center;
+    line-height: 18px
+}
+
+.task-content {
+    min-width: 0;
+    flex: 1
+}
+
+.task-title {
+    margin: 0;
+    font-size: 15px;
+    overflow-wrap: anywhere
+}
+
+.task-notes {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 13px;
+    white-space: pre-wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 12px
+}
+
+.task-deadline {
+    font-weight: 700
+}
+
+.task-deadline.overdue {
+    color: var(--danger)
+}
+
+.task-deadline.due-soon,
+.task-deadline.due-today {
+    color: var(--warning)
+}
+
+.task-deadline.completed {
+    color: var(--success)
+}
+
+.task-completed {
+    color: var(--success)
+}
+
+.task-actions {
+    display: flex;
+    gap: 4px;
+    flex: 0 0 auto
+}
+
+.task-action {
+    min-height: 40px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 12px
+}
+
+.task-action:hover,
+.task-action:focus-visible {
+    background: var(--surface-2);
+    color: var(--text)
+}
+
+.task-delete:hover,
+.task-delete:focus-visible {
+    color: var(--danger)
+}
+
+.task-empty {
+    padding: 36px 10px;
+    text-align: center;
+    color: var(--text-muted);
+    list-style: none
+}
+
+.task-error {
+    min-height: 18px;
+    margin: 4px 0;
+    color: var(--danger);
+    font-size: 12px
+}
+
+#taskDialog form {
+    display: grid;
+    gap: 8px;
+    min-width: min(100%, 420px)
+}
+
+#taskDialog label {
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 700
+}
+
+#taskDialog input,
+#taskDialog textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text)
+}
+
+#taskDialog textarea {
+    resize: vertical
+}
+
+.deadline-row {
+    display: flex;
+    gap: 8px
+}
+
+.deadline-row input {
+    flex: 1
+}
+
+.deadline-row .secondary-button {
+    min-height: 44px
+}
+
+.dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 16px
+}
+
+.danger-button {
+    background: var(--danger);
+    border-color: var(--danger)
+}
+
+#titleHint {
+    color: var(--text-muted);
+    font-size: 12px
+}
+
+#taskDialog[open],
+#deleteDialog[open] {
+    animation: dialog-in 180ms ease
+}
+
+@keyframes dialog-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px)
+    }
+
+    to {
+        opacity: 1;
+        transform: none
+    }
+}
+
+@media(max-width:639px) {
+    #taskDialog {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        margin-top: auto
+    }
+
+    .task-card {
+        flex-wrap: wrap
+    }
+
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end
+    }
+
+    .task-action {
+        min-height: 44px
+    }
+
+    .dialog-actions {
+        padding-bottom: env(safe-area-inset-bottom)
+    }
+}
+
+.upcoming-item {
+    list-style: none
+}
+
+.upcoming-item button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    text-align: left
+}
+
+.upcoming-item:last-child button {
+    border-bottom: 0
+}
+
+.upcoming-item button:hover strong {
+    color: var(--primary)
+}
+
+.toast-action {
+    min-height: 30px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--surface-2);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 750
+}
+
+.toast-action:hover {
+    background: var(--primary);
+    color: var(--primary-contrast)
+}

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Tech SG task dashboard.">
+    <title>Overview | Tech SG</title>
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%235b5ce2'/%3E%3Cpath d='M18 21h28v7H35v22h-7V28H18z' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="../shared/base.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="tasks.css">
+    <script src="../shared/theme.js"></script>
+    <script src="../shared/guard.js"></script>
+</head>
+
+<body class="dash-body">
+    <div class="dash-app">
+        <aside class="dash-sidebar"><a class="dash-brand" href="#overview" aria-label="Tech SG overview"><span
+                    class="dash-logo">T</span><span>Tech SG</span></a>
+            <nav aria-label="Main"><a class="dash-nav-item is-active" href="#overview" data-section="overview"><span
+                        aria-hidden="true">⌂</span><span>Overview</span></a><a class="dash-nav-item" href="#tasks"
+                    data-section="tasks"><span aria-hidden="true">✓</span><span>My Tasks</span><span class="dash-count"
+                        id="navTasksCount">0</span></a><a class="dash-nav-item" href="#completed"
+                    data-section="completed"><span aria-hidden="true">✓</span><span>Completed</span><span
+                        class="dash-count" id="navCompletedCount">0</span></a><a class="dash-nav-item" href="#archived"
+                    data-section="archived"><span aria-hidden="true">□</span><span>Archived</span><span
+                        class="dash-count" id="navArchivedCount">0</span></a></nav>
+            <div class="dash-sidebar-footer"><span class="dash-email" id="sidebarEmail">—</span></div>
+        </aside>
+        <header class="dash-topbar"><a class="dash-brand dash-mobile-brand" href="#overview"
+                aria-label="Tech SG overview"><span class="dash-logo">T</span><span>Tech SG</span></a>
+            <h1 id="sectionTitle">Overview</h1>
+            <div class="dash-top-actions"><button class="icon-button notification-button" id="notificationButton"
+                    type="button" aria-label="Deadline notifications are UI only"
+                    title="Deadline notifications will be integrated later"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" />
+                    </svg><span class="notification-dot" aria-hidden="true"></span></button><button
+                    class="icon-button theme-toggle" type="button" aria-label="Switch to dark theme"
+                    aria-pressed="false"><svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4" />
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                    </svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 15.5A9 9 0 0 1 8.5 3 9 9 0 1 0 21 15.5Z" />
+                    </svg></button>
+                <div class="dash-user"><span class="dash-avatar" id="userAvatar">I</span><span
+                        id="userName">Intern</span></div><button class="secondary-button dash-logout" id="logoutButton"
+                    type="button">Log out</button>
+            </div>
+        </header>
+        <main class="dash-main">
+            <section class="dash-section is-visible" id="overviewSection" data-section-panel="overview"
+                aria-labelledby="overviewHeading">
+                <div class="dash-heading-row">
+                    <div>
+                        <p class="dash-eyebrow" id="overviewDate">Today</p>
+                        <h2 id="overviewHeading" tabindex="-1">Good afternoon, Intern</h2>
+                        <p class="dash-muted">Your workspace is ready when you are.</p>
+                    </div><button class="primary-button dash-new-task" type="button" data-open-task>New task</button>
+                </div>
+                <div class="dash-stat-grid">
+                    <article class="dash-stat-card"><span>Pending</span><strong id="statPending">0</strong></article>
+                    <article class="dash-stat-card"><span>Due today</span><strong id="statDueToday">0</strong></article>
+                    <article class="dash-stat-card"><span>Overdue</span><strong id="statOverdue">0</strong></article>
+                    <article class="dash-stat-card"><span>Completed</span><strong id="statCompleted">0</strong>
+                    </article>
+                </div>
+                <div class="dash-panel">
+                    <div class="dash-panel-heading">
+                        <h3>Upcoming deadlines</h3><a href="#tasks">View tasks</a>
+                    </div>
+                    <ul class="task-list" id="upcomingList">
+                        <li class="task-empty">No upcoming deadlines yet.</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="dash-section" id="tasksSection" data-section-panel="tasks" aria-labelledby="tasksHeading"
+                hidden>
+                <div class="dash-heading-row">
+                    <div>
+                        <p class="dash-eyebrow">Workspace</p>
+                        <h2 id="tasksHeading" tabindex="-1">My Tasks</h2>
+                        <p class="dash-muted" id="tasksCounter">No tasks pending</p>
+                    </div><button class="primary-button dash-new-task" type="button" data-open-task>New task</button>
+                </div>
+                <div class="dash-toolbar"><input id="tasksSearch" type="search" placeholder="Search tasks"
+                        aria-label="Search tasks"><select id="tasksSort" aria-label="Sort tasks">
+                        <option value="deadline">Deadline</option>
+                        <option value="newest">Newest</option>
+                    </select></div>
+                <ul class="task-list" id="tasksList"></ul>
+            </section>
+            <section class="dash-section" id="completedSection" data-section-panel="completed"
+                aria-labelledby="completedHeading" hidden>
+                <div class="dash-heading-row">
+                    <div>
+                        <p class="dash-eyebrow">History</p>
+                        <h2 id="completedHeading" tabindex="-1">Completed</h2>
+                        <p class="dash-muted" id="completedCounter">Nothing completed yet.</p>
+                    </div>
+                </div>
+                <div class="dash-toolbar"><input id="completedSearch" type="search" placeholder="Search completed tasks"
+                        aria-label="Search completed tasks"><select id="completedSort"
+                        aria-label="Sort completed tasks">
+                        <option value="deadline">Deadline</option>
+                        <option value="newest">Newest</option>
+                    </select></div>
+                <ul class="task-list" id="completedList"></ul>
+            </section>
+            <section class="dash-section" id="archivedSection" data-section-panel="archived"
+                aria-labelledby="archivedHeading" hidden>
+                <div class="dash-heading-row">
+                    <div>
+                        <p class="dash-eyebrow">Stored away</p>
+                        <h2 id="archivedHeading" tabindex="-1">Archived</h2>
+                        <p class="dash-muted" id="archivedCounter">Your archive is empty.</p>
+                    </div>
+                </div>
+                <div class="dash-toolbar"><input id="archivedSearch" type="search" placeholder="Search archived tasks"
+                        aria-label="Search archived tasks"><select id="archivedSort" aria-label="Sort archived tasks">
+                        <option value="deadline">Deadline</option>
+                        <option value="newest">Newest</option>
+                    </select></div>
+                <ul class="task-list" id="archivedList"></ul>
+            </section>
+        </main>
+        <nav class="dash-bottom-nav" aria-label="Main"><a class="is-active"
+                href="#overview">⌂<span>Overview</span></a><a href="#tasks">✓<span>Tasks</span></a><a
+                href="#completed">✓<span>Done</span></a><a href="#archived">□<span>Archive</span></a></nav>
+    </div>
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+    <dialog id="taskDialog" aria-labelledby="taskDialogTitle">
+        <form id="taskForm" method="dialog">
+            <h2 id="taskDialogTitle">New task</h2><label for="taskTitle">Title</label><input id="taskTitle"
+                maxlength="100" autocomplete="off">
+            <p class="task-error" id="taskTitleError"></p><span id="titleHint">100 characters maximum</span><label
+                for="taskNotes">Notes</label><textarea id="taskNotes" maxlength="300" rows="4"></textarea><label
+                for="taskDeadline">Deadline</label>
+            <div class="deadline-row"><input id="taskDeadline" type="datetime-local"><button class="secondary-button"
+                    id="clearDeadline" type="button">Clear</button></div>
+            <div class="dialog-actions"><button class="secondary-button" id="cancelTask"
+                    type="button">Cancel</button><button class="primary-button" id="taskSubmit" type="submit">Add
+                    task</button></div>
+        </form>
+    </dialog>
+    <dialog id="deleteDialog" aria-labelledby="deleteDialogTitle">
+        <h2 id="deleteDialogTitle">Delete this task?</h2>
+        <p>This can't be undone.</p>
+        <div class="dialog-actions"><button class="secondary-button" id="cancelDelete"
+                type="button">Cancel</button><button class="primary-button danger-button" id="confirmDelete"
+                type="button">Delete</button></div>
+    </dialog><template id="taskCardTemplate">
+        <li class="task-item">
+            <article class="task-card"><label class="task-check"><input class="task-checkbox" type="checkbox"><span
+                        class="task-checkmark" aria-hidden="true"></span></label>
+                <div class="task-content">
+                    <h3 class="task-title"></h3>
+                    <p class="task-notes"></p>
+                    <div class="task-meta"><span class="task-deadline"></span><span class="task-completed"></span></div>
+                </div>
+                <div class="task-actions"><button class="task-action task-edit" type="button"
+                        data-action="edit">Edit</button><button class="task-action task-archive" type="button"
+                        data-action="archive">Archive</button><button class="task-action task-delete" type="button"
+                        data-action="delete">Delete</button></div>
+            </article>
+        </li>
+    </template>
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>
