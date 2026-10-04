@@ -110,6 +110,93 @@
     font-weight: 700
 }
 
+.dash-top-actions {
+    position: relative;
+    gap: 8px;
+    padding: 4px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface-2)
+}
+
+.dash-top-actions>.icon-button {
+    width: 44px;
+    height: 44px
+}
+
+.dash-profile {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--text)
+}
+
+.dash-profile:hover,
+.dash-profile[aria-expanded=true] {
+    background: var(--surface)
+}
+
+.dash-profile #userName {
+    display: none
+}
+
+.dash-profile .dash-avatar {
+    width: 36px;
+    height: 36px
+}
+
+.dash-logout {
+    min-height: 44px;
+    padding: 0 14px;
+    border-radius: 12px
+}
+
+.profile-menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 10px);
+    right: 4px;
+    display: grid;
+    min-width: 190px;
+    padding: 6px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--surface);
+    box-shadow: var(--shadow-md)
+}
+
+.profile-menu[hidden] {
+    display: none
+}
+
+.profile-menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--text);
+    text-align: left
+}
+
+.profile-menu button:hover {
+    background: var(--surface-2)
+}
+
+.profile-menu button span:first-child {
+    width: 20px;
+    color: var(--text-muted);
+    text-align: center
+}
+
 .dash-avatar {
     display: grid;
     place-items: center;
@@ -361,22 +448,32 @@ dialog h2 {
     }
 
     .dash-top-actions {
-        gap: 4px
+        gap: 0;
+        padding: 0;
+        border: 0;
+        background: transparent
     }
 
-    .dash-user {
+    .dash-top-actions>.notification-button,
+    .dash-top-actions>.theme-toggle,
+    .dash-top-actions>.dash-logout {
         display: none
     }
 
-    .dash-logout {
-        width: 44px;
-        padding: 0;
-        font-size: 0
+    .dash-profile {
+        width: 42px;
+        height: 42px
     }
 
-    .dash-logout::before {
-        content: '↪';
-        font-size: 20px
+    .dash-profile .dash-avatar {
+        width: 40px;
+        height: 40px
+    }
+
+    .profile-menu {
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 184px
     }
 
     .dash-main {
