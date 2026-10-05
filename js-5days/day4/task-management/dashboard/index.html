@@ -46,13 +46,49 @@
                         <path d="M21 15.5A9 9 0 0 1 8.5 3 9 9 0 1 0 21 15.5Z" />
                     </svg></button>
                 <button class="dash-profile" id="profileButton" type="button" aria-label="Open profile menu"
-                    aria-expanded="false" aria-controls="profileMenu"><span class="dash-avatar" id="userAvatar">I</span><span
-                        id="userName">Intern</span></button><button class="secondary-button dash-logout" id="logoutButton"
-                    type="button">Log out</button>
+                    aria-expanded="false" aria-controls="profileMenu"><span class="dash-avatar"
+                        id="userAvatar">I</span><span id="userName">Intern</span></button><button
+                    class="secondary-button dash-logout" id="logoutButton" type="button" aria-label="Log out"
+                    title="Log out"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 4H5v16h5m4-4 4-4-4-4m4 4H9" />
+                    </svg></button>
+                <div class="profile-backdrop" id="profileBackdrop" aria-hidden="true" hidden></div>
                 <div class="profile-menu" id="profileMenu" hidden>
-                    <button type="button" id="mobileNotificationButton"><span aria-hidden="true">🔔</span><span>Notification</span></button>
-                    <button type="button" id="mobileThemeButton"><span aria-hidden="true">☼</span><span>Theme</span></button>
-                    <button type="button" id="mobileLogoutButton"><span aria-hidden="true">↪</span><span>Log out</span></button>
+                    <div class="profile-menu-heading"><a class="dash-brand" href="#overview"
+                            aria-label="Tech SG overview"><span class="dash-logo">T</span><span>Tech SG</span></a>
+                        <button class="profile-menu-close" id="profileClose" type="button"
+                            aria-label="Close profile sidebar">×</button>
+                    </div>
+                    <div class="profile-menu-identity"><span class="profile-menu-avatar" id="menuUserAvatar"
+                            aria-hidden="true">I</span><div class="profile-menu-user"><strong
+                                id="menuUserName">Intern</strong><span id="menuUserEmail">—</span></div></div>
+                    <button type="button" id="changePasswordButton"><span
+                            aria-hidden="true">↻</span><span>Change password</span></button>
+                    <button type="button" id="changeEmailButton"><span
+                            aria-hidden="true">@</span><span>Change email</span></button>
+                    <button type="button" id="helpButton" aria-expanded="false"
+                        aria-controls="helpContacts"><span aria-hidden="true">?</span><span>Help</span><span
+                            class="profile-menu-chevron" aria-hidden="true">⌄</span></button>
+                    <div class="help-contacts" id="helpContacts" hidden>
+                        <a href="mailto:support@techsgstudio.com">support@techsgstudio.com</a>
+                        <a href="tel:03069624047">03069624047</a>
+                        <a href="tel:03107440834">03107440834</a>
+                    </div>
+                    <div class="profile-menu-mobile-actions">
+                        <button type="button" id="mobileNotificationButton"><span
+                                aria-hidden="true">🔔</span><span>Notification</span></button>
+                        <button type="button" class="theme-toggle mobile-theme-toggle" id="mobileThemeButton"
+                            aria-label="Switch to dark theme" aria-pressed="false"><svg class="sun-icon"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="4" />
+                                <path
+                                    d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                            </svg><svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 15.5A9 9 0 0 1 8.5 3 9 9 0 1 0 21 15.5Z" />
+                            </svg><span>Theme</span></button>
+                        <button type="button" id="mobileLogoutButton"><span
+                                aria-hidden="true">↪</span><span>Log out</span></button>
+                    </div>
                 </div>
             </div>
         </header>

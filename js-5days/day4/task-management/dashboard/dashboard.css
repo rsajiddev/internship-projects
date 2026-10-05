@@ -120,40 +120,63 @@
 }
 
 .dash-top-actions>.icon-button {
-    width: 44px;
-    height: 44px
+    width: 38px;
+    height: 38px;
+    border-radius: 12px
 }
 
 .dash-profile {
-    display: grid;
-    place-items: center;
-    width: 44px;
-    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    height: 38px;
     padding: 0;
     border: 0;
-    border-radius: 50%;
+    border-radius: 12px;
     background: transparent;
     color: var(--text)
 }
 
 .dash-profile:hover,
 .dash-profile[aria-expanded=true] {
-    background: var(--surface)
-}
-
-.dash-profile #userName {
-    display: none
+    background: transparent
 }
 
 .dash-profile .dash-avatar {
-    width: 36px;
-    height: 36px
+    width: 38px;
+    height: 38px;
+    border-radius: 12px
 }
 
 .dash-logout {
-    min-height: 44px;
-    padding: 0 14px;
-    border-radius: 12px
+    display: grid;
+    place-items: center;
+    width: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    padding: 0;
+    border: 1px solid #c73545;
+    border-radius: 12px;
+    background: #c73545;
+    color: #fff
+}
+
+.dash-logout:hover {
+    border-color: #a92a38;
+    background: #a92a38;
+    color: #fff
+}
+
+.dash-logout svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round
 }
 
 .profile-menu {
@@ -162,7 +185,8 @@
     top: calc(100% + 10px);
     right: 4px;
     display: grid;
-    min-width: 190px;
+    width: min(300px, calc(100vw - 24px));
+    min-width: 220px;
     padding: 6px;
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -171,7 +195,52 @@
 }
 
 .profile-menu[hidden] {
+    display: none !important
+}
+
+.profile-menu-heading {
     display: none
+}
+
+.profile-backdrop {
+    display: none
+}
+
+.profile-menu-identity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 10px 12px 14px;
+    border-bottom: 1px solid var(--border)
+}
+
+.profile-menu-avatar {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--primary-contrast);
+    font-weight: 750
+}
+
+.profile-menu-user {
+    display: grid;
+    gap: 2px;
+    min-width: 0
+}
+
+.profile-menu-identity strong {
+    font-size: 14px
+}
+
+.profile-menu-user span {
+    overflow-wrap: anywhere;
+    color: var(--text-muted);
+    font-size: 12px
 }
 
 .profile-menu button {
@@ -193,8 +262,245 @@
 
 .profile-menu button span:first-child {
     width: 20px;
+    flex: 0 0 20px;
     color: var(--text-muted);
     text-align: center
+}
+
+.profile-menu button .profile-menu-chevron {
+    width: auto;
+    margin-left: auto;
+    transition: transform var(--transition)
+}
+
+#helpButton[aria-expanded=true] .profile-menu-chevron {
+    transform: rotate(180deg)
+}
+
+.help-contacts {
+    display: grid;
+    gap: 8px;
+    padding: 4px 12px 12px 42px;
+    font-size: 12px
+}
+
+.help-contacts[hidden] {
+    display: none !important
+}
+
+.profile-menu .mobile-theme-toggle {
+    justify-content: flex-start
+}
+
+.mobile-theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
+.help-contacts a {
+    overflow-wrap: anywhere;
+    color: var(--primary);
+    text-decoration: none
+}
+
+.help-contacts a:hover {
+    text-decoration: underline
+}
+
+.profile-menu-mobile-actions {
+    display: grid;
+    padding-top: 6px;
+    border-top: 1px solid var(--border)
+}
+
+#mobileLogoutButton span:first-child {
+    color: #c73545
+}
+
+@media(min-width:640px) {
+    .dash-top-actions {
+        flex: 0 0 auto;
+        justify-content: flex-end;
+        margin-left: auto;
+        gap: 6px;
+        padding: 4px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface-2)
+    }
+
+    .dash-profile .dash-avatar {
+        width: 38px;
+        height: 38px
+    }
+
+    .profile-menu-mobile-actions {
+        display: none
+    }
+}
+
+@media(min-width:1024px) {
+    .dash-logout {
+        order: 1
+    }
+
+    .dash-profile {
+        order: 2
+    }
+
+    .dash-profile #userName {
+        display: none
+    }
+}
+
+@media(min-width:640px) and (max-width:1023px) {
+    .dash-topbar {
+        gap: 12px;
+        padding-inline: clamp(12px, 3vw, 24px)
+    }
+
+    .dash-topbar h1 {
+        min-width: 0;
+        font-size: clamp(17px, 2vw, 20px)
+    }
+
+    .dash-top-actions {
+        flex: 0 0 auto
+    }
+
+    .dash-logout {
+        order: 1
+    }
+
+    .dash-profile {
+        order: 2
+    }
+
+    .dash-profile #userName {
+        display: none
+    }
+}
+
+@media(max-width:1023px) {
+    body.profile-open {
+        overflow: hidden
+    }
+
+    .profile-backdrop:not([hidden]) {
+        position: fixed;
+        z-index: 29;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        border: 0;
+        background: rgb(17 24 39 / 48%)
+    }
+
+    .profile-menu {
+        position: fixed;
+        z-index: 30;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: min(320px, 86vw);
+        min-width: 0;
+        max-height: 100vh;
+        max-height: 100dvh;
+        overflow-y: auto;
+        padding: calc(18px + env(safe-area-inset-top, 0px)) 16px calc(18px + env(safe-area-inset-bottom, 0px));
+        border: 1px solid var(--border);
+        border-right: 0;
+        border-radius: 20px 0 0 20px;
+        background: var(--surface);
+        box-shadow: var(--shadow-lg)
+    }
+
+    .profile-menu-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 48px;
+        margin-bottom: 14px
+    }
+
+    .profile-menu-heading .dash-brand {
+        padding: 0;
+        font-size: 18px
+    }
+
+    .profile-menu-close {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border: 1px solid var(--border) !important;
+        border-radius: 12px !important;
+        background: var(--surface-2) !important;
+        color: var(--text) !important;
+        font-size: 26px;
+        line-height: 1
+    }
+
+    .profile-menu-identity {
+        padding: 12px 4px 18px;
+        margin-bottom: 8px;
+        order: 1
+    }
+
+    .profile-menu > button {
+        min-height: 48px;
+        padding-inline: 10px
+    }
+
+    .profile-menu-mobile-actions {
+        display: contents
+    }
+
+    #mobileThemeButton {
+        order: 2
+    }
+
+    #mobileNotificationButton {
+        order: 3
+    }
+
+    #changePasswordButton {
+        order: 4
+    }
+
+    #changeEmailButton {
+        order: 5
+    }
+
+    #helpButton {
+        order: 6
+    }
+
+    #helpContacts {
+        order: 7
+    }
+
+    #mobileLogoutButton {
+        order: 8;
+        min-height: 48px;
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        border-radius: 0
+    }
 }
 
 .dash-avatar {
@@ -461,19 +767,30 @@ dialog h2 {
     }
 
     .dash-profile {
-        width: 42px;
-        height: 42px
+        width: 38px;
+        height: 38px;
+        padding: 0;
+        border-radius: 12px
+    }
+
+    .dash-profile #userName {
+        display: none
     }
 
     .dash-profile .dash-avatar {
-        width: 40px;
-        height: 40px
+        width: 38px;
+        height: 38px
     }
 
-    .profile-menu {
-        top: calc(100% + 8px);
-        right: 0;
-        min-width: 184px
+    .profile-menu-identity {
+        order: initial;
+        padding: 10px 12px 12px;
+        margin: 0
+    }
+
+    .profile-menu > button {
+        min-height: 42px;
+        padding-inline: 12px
     }
 
     .dash-main {
