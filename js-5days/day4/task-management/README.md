@@ -28,16 +28,6 @@ Deadline notification functionality is intentionally UI-only for now. The app do
 - Email/username: `intern@techsgstudio.com`
 - Password: `TSG@2026`
 
-## Local development
-
-The project uses relative asset and navigation paths, so `index.html` can be opened directly by double-clicking it or hosted under a subpath. For deployment parity and the smoothest ES-module development workflow, a local server such as VS Code Live Server is also supported:
-
-```text
-python3 -m http.server 4173
-```
-
-Then open `http://127.0.0.1:4173/`.
-
 ## Security note
 
 Credentials are client-side for demo purposes only. Production would use a server-side authentication API with hashed passwords and tokens. Never store the password anywhere. This demo stores only the remembered email, session, and task data in browser storage.

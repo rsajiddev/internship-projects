@@ -1,298 +1,298 @@
 import {
-  STORAGE_KEYS,
-  storageGet,
-  storageSet,
+    STORAGE_KEYS,
+    storageGet,
+    storageSet,
 } from '../shared/storage.js';
 
 export const taskState = {
-  tasks: [],
+    tasks: [],
 };
 
 function id() {
-  try {
-    return crypto.randomUUID();
-  } catch {
-    return `task-${Date.now()}-${Math.random()
-      .toString(36)
-      .slice(2, 8)}`;
-  }
+    try {
+        return crypto.randomUUID();
+    } catch {
+        return `task-${Date.now()}-${Math.random()
+            .toString(36)
+            .slice(2, 8)}`;
+    }
 }
 
 function iso(value) {
-  return value
-    ? new Date(value).toISOString()
-    : null;
+    return value
+        ? new Date(value).toISOString()
+        : null;
 }
 
 function normalize(raw) {
-  if (!raw || typeof raw !== 'object') {
-    return null;
-  }
+    if (!raw || typeof raw !== 'object') {
+        return null;
+    }
 
-  const status = raw.status;
+    const status = raw.status;
 
-  return {
-    id: String(raw.id || id()),
+    return {
+        id: String(raw.id || id()),
 
-    title: String(raw.title || '')
-      .trim()
-      .slice(0, 100),
+        title: String(raw.title || '')
+            .trim()
+            .slice(0, 100),
 
-    notes: String(raw.notes || '')
-      .trim()
-      .slice(0, 300),
+        notes: String(raw.notes || '')
+            .trim()
+            .slice(0, 300),
 
-    deadline: raw.deadline
-      ? iso(raw.deadline)
-      : null,
+        deadline: raw.deadline
+            ? iso(raw.deadline)
+            : null,
 
-    completed:
-      typeof raw.completed === 'boolean'
-        ? raw.completed
-        : status === 'completed',
+        completed:
+            typeof raw.completed === 'boolean'
+                ? raw.completed
+                : status === 'completed',
 
-    archived:
-      typeof raw.archived === 'boolean'
-        ? raw.archived
-        : status === 'archived',
+        archived:
+            typeof raw.archived === 'boolean'
+                ? raw.archived
+                : status === 'archived',
 
-    createdAt:
-      raw.createdAt &&
-      !Number.isNaN(
-        new Date(raw.createdAt).getTime()
-      )
-        ? new Date(raw.createdAt).toISOString()
-        : new Date().toISOString(),
+        createdAt:
+            raw.createdAt &&
+                !Number.isNaN(
+                    new Date(raw.createdAt).getTime()
+                )
+                ? new Date(raw.createdAt).toISOString()
+                : new Date().toISOString(),
 
-    completedAt: raw.completedAt
-      ? iso(raw.completedAt)
-      : null,
+        completedAt: raw.completedAt
+            ? iso(raw.completedAt)
+            : null,
 
-    reminded: Boolean(raw.reminded),
-  };
+        reminded: Boolean(raw.reminded),
+    };
 }
 
 function read(key) {
-  try {
-    const raw = localStorage.getItem(key);
-    const data = raw ? JSON.parse(raw) : [];
+    try {
+        const raw = localStorage.getItem(key);
+        const data = raw ? JSON.parse(raw) : [];
 
-    return Array.isArray(data) ? data : [];
-  } catch {
-    return [];
-  }
+        return Array.isArray(data) ? data : [];
+    } catch {
+        return [];
+    }
 }
 
 export function loadTasks() {
-  const current = read(STORAGE_KEYS.tasks);
+    const current = read(STORAGE_KEYS.tasks);
 
-  if (current.length) {
-    taskState.tasks = current
-      .map(normalize)
-      .filter(Boolean);
+    if (current.length) {
+        taskState.tasks = current
+            .map(normalize)
+            .filter(Boolean);
 
-    saveTasks();
+        saveTasks();
+
+        return taskState.tasks;
+    }
+
+    const legacy = read('ledger_tasks_v1');
+
+    taskState.tasks = legacy
+        .map(normalize)
+        .filter(
+            (task) => task && task.title
+        );
+
+    if (taskState.tasks.length) {
+        saveTasks();
+    }
 
     return taskState.tasks;
-  }
-
-  const legacy = read('ledger_tasks_v1');
-
-  taskState.tasks = legacy
-    .map(normalize)
-    .filter(
-      (task) => task && task.title
-    );
-
-  if (taskState.tasks.length) {
-    saveTasks();
-  }
-
-  return taskState.tasks;
 }
 
 export function saveTasks() {
-  storageSet(
-    'localStorage',
-    STORAGE_KEYS.tasks,
-    JSON.stringify(taskState.tasks)
-  );
+    storageSet(
+        'localStorage',
+        STORAGE_KEYS.tasks,
+        JSON.stringify(taskState.tasks)
+    );
 }
 
 export function addTask(input) {
-  const task = {
-    id: id(),
+    const task = {
+        id: id(),
 
-    title: input.title
-      .trim()
-      .slice(0, 100),
+        title: input.title
+            .trim()
+            .slice(0, 100),
 
-    notes: (input.notes || '')
-      .trim()
-      .slice(0, 300),
+        notes: (input.notes || '')
+            .trim()
+            .slice(0, 300),
 
-    deadline: input.deadline || null,
+        deadline: input.deadline || null,
 
-    completed: false,
-    archived: false,
+        completed: false,
+        archived: false,
 
-    createdAt: new Date().toISOString(),
+        createdAt: new Date().toISOString(),
 
-    completedAt: null,
-    reminded: false,
-  };
+        completedAt: null,
+        reminded: false,
+    };
 
-  taskState.tasks.unshift(task);
+    taskState.tasks.unshift(task);
 
-  saveTasks();
+    saveTasks();
 
-  return task;
+    return task;
 }
 
 export function updateTask(taskId, input) {
-  const task = taskState.tasks.find(
-    (item) => item.id === taskId
-  );
+    const task = taskState.tasks.find(
+        (item) => item.id === taskId
+    );
 
-  if (!task) {
-    return null;
-  }
+    if (!task) {
+        return null;
+    }
 
-  const previousDeadline = task.deadline;
+    const previousDeadline = task.deadline;
 
-  task.title = input.title
-    .trim()
-    .slice(0, 100);
+    task.title = input.title
+        .trim()
+        .slice(0, 100);
 
-  task.notes = (input.notes || '')
-    .trim()
-    .slice(0, 300);
+    task.notes = (input.notes || '')
+        .trim()
+        .slice(0, 300);
 
-  task.deadline = input.deadline || null;
+    task.deadline = input.deadline || null;
 
-  if (previousDeadline !== task.deadline) {
-    task.reminded = false;
-  }
+    if (previousDeadline !== task.deadline) {
+        task.reminded = false;
+    }
 
-  saveTasks();
+    saveTasks();
 
-  return task;
+    return task;
 }
 
 export function deleteTask(taskId) {
-  taskState.tasks = taskState.tasks.filter(
-    (task) => task.id !== taskId
-  );
+    taskState.tasks = taskState.tasks.filter(
+        (task) => task.id !== taskId
+    );
 
-  saveTasks();
+    saveTasks();
 }
 
 export function setCompleted(taskId, completed) {
-  const task = taskState.tasks.find(
-    (item) => item.id === taskId
-  );
+    const task = taskState.tasks.find(
+        (item) => item.id === taskId
+    );
 
-  if (!task) {
-    return null;
-  }
+    if (!task) {
+        return null;
+    }
 
-  task.completed = completed;
+    task.completed = completed;
 
-  task.completedAt = completed
-    ? new Date().toISOString()
-    : null;
+    task.completedAt = completed
+        ? new Date().toISOString()
+        : null;
 
-  saveTasks();
+    saveTasks();
 
-  return task;
+    return task;
 }
 
 export function setArchived(taskId, archived) {
-  const task = taskState.tasks.find(
-    (item) => item.id === taskId
-  );
+    const task = taskState.tasks.find(
+        (item) => item.id === taskId
+    );
 
-  if (!task) {
-    return null;
-  }
+    if (!task) {
+        return null;
+    }
 
-  task.archived = archived;
+    task.archived = archived;
 
-  saveTasks();
+    saveTasks();
 
-  return task;
+    return task;
 }
 
 export function getActive() {
-  return taskState.tasks.filter(
-    (task) =>
-      !task.archived &&
-      !task.completed
-  );
+    return taskState.tasks.filter(
+        (task) =>
+            !task.archived &&
+            !task.completed
+    );
 }
 
 export function getCompleted() {
-  return taskState.tasks.filter(
-    (task) =>
-      !task.archived &&
-      task.completed
-  );
+    return taskState.tasks.filter(
+        (task) =>
+            !task.archived &&
+            task.completed
+    );
 }
 
 export function getArchived() {
-  return taskState.tasks.filter(
-    (task) => task.archived
-  );
+    return taskState.tasks.filter(
+        (task) => task.archived
+    );
 }
 
 export function getTask(taskId) {
-  return (
-    taskState.tasks.find(
-      (task) => task.id === taskId
-    ) || null
-  );
+    return (
+        taskState.tasks.find(
+            (task) => task.id === taskId
+        ) || null
+    );
 }
 
 export function getStats() {
-  const active = getActive();
-  const today = new Date().toDateString();
+    const active = getActive();
+    const today = new Date().toDateString();
 
-  return {
-    pending: active.length,
+    return {
+        pending: active.length,
 
-    completed: getCompleted().length,
+        completed: getCompleted().length,
 
-    dueToday: active.filter(
-      (task) =>
-        task.deadline &&
-        new Date(task.deadline).toDateString() ===
-          today
-    ).length,
+        dueToday: active.filter(
+            (task) =>
+                task.deadline &&
+                new Date(task.deadline).toDateString() ===
+                today
+        ).length,
 
-    overdue: active.filter(
-      (task) =>
-        task.deadline &&
-        new Date(task.deadline).getTime() <
-          Date.now()
-    ).length,
-  };
+        overdue: active.filter(
+            (task) =>
+                task.deadline &&
+                new Date(task.deadline).getTime() <
+                Date.now()
+        ).length,
+    };
 }
 
 export function restoreTask(snapshot) {
-  const index = taskState.tasks.findIndex(
-    (task) => task.id === snapshot.id
-  );
+    const index = taskState.tasks.findIndex(
+        (task) => task.id === snapshot.id
+    );
 
-  if (index < 0) {
-    taskState.tasks.push({
-      ...snapshot,
-    });
-  } else {
-    taskState.tasks[index] = {
-      ...snapshot,
-    };
-  }
+    if (index < 0) {
+        taskState.tasks.push({
+            ...snapshot,
+        });
+    } else {
+        taskState.tasks[index] = {
+            ...snapshot,
+        };
+    }
 
-  saveTasks();
+    saveTasks();
 }
 
